@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/jeppiaarwebportal-dev',
+
+	/*db: 'mongodb://localhost/jeppiaarwebportal-dev',*/
+	db: 'mongodb://jprdatabase:123456@ds047581.mongolab.com:47581/jprwebportal',
 	app: {
 		title: 'Jeppiaar WebPortal'
 	},
