@@ -1,0 +1,70 @@
+<section data-ng-controller="AuthenticationController">
+	<h3 class="col-md-12 text-center">Sign In</h3>
+<!-- 	<div class="col-md-12 text-center">
+	<a href="/auth/facebook" class="undecorated-link">
+		<img src="/modules/users/img/buttons/facebook.png">
+	</a>
+	<a href="/auth/twitter" class="undecorated-link">
+		<img src="/modules/users/img/buttons/twitter.png">
+	</a>
+	<a href="/auth/google" class="undecorated-link">
+		<img src="/modules/users/img/buttons/google.png">
+	</a>
+	<a href="/auth/linkedin" class="undecorated-link">
+		<img src="/modules/users/img/buttons/linkedin.png">
+	</a>
+	<a href="/auth/github" class="undecorated-link">
+		<img src="/modules/users/img/buttons/github.png">
+	</a>
+</div> -->
+	<div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 login-page-bg">
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10 col-md-4">
+				<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
+					<fieldset>
+						<div data-ng-show="error" class="text-center text-danger">
+							<strong data-ng-bind="error"></strong>
+						</div>
+						<div class="form-group">
+							<label>Username / Email</label>
+							<div class="input-group input-group-md">							
+								<span class="input-group-addon">
+									<i class="text-muted glyphicon glyphicon-user"></i>
+								</span>
+								<input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Enter username / email">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label>Password</label>
+							<div class="input-group input-group-md">
+								<span class="input-group-addon">
+									<i class="text-muted glyphicon glyphicon-asterisk"></i>
+								</span>
+								<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+							</div>
+						</div>
+						
+						<div class="text-center form-group">
+							<button type="submit" class="btn btn-sm btn-primary btn-large btn-block btn-show">Sign in</button>
+						</div>
+						<div class="forgot-password">
+							<lable><input type="checkbox"  class="icheckbox_square-green"> Remember</label>
+							<a href="/#!/password/forgot" class="pull-right">Forgot password?</a>
+						</div>
+						
+					</fieldset>
+				</form>
+			</div>
+			<div class="col-xs-offset-1 col-xs-10 col-md-5 bg-login">
+				<h4>Not a member?  
+				</h4>
+                
+                <p>You can create an account:</p>
+                <p class="text-center">
+                    <a href="/#!/signup"><i class="glyphicon glyphicon-log-in big-icon"></i></a>
+                </p>
+			</div>
+		</div>
+	</div>
+</section>

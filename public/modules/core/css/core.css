@@ -1,0 +1,113 @@
+.content {
+  margin-top: 50px;
+}
+.undecorated-link:hover {
+  text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+  border-color: #78FA89;
+}
+/* Login Page style - Start*/
+body{
+  background-color: #EEEEEE;
+}
+.login-page-bg{
+  background-color: #ffffff;
+  padding: 15px;
+  border-color: #FCFCFC;
+  border-width: 3px;
+  border-style: solid;
+  /* background: rgba(255, 255, 255, 0.95); */
+  box-shadow: 0 1px 10px rgba(31, 50, 63, 0.25);
+}
+.bg-login {
+  background: #F9F9F9;
+  border-radius: 8px;
+}
+.big-icon{
+  font-size: 160px;
+}
+.login-page-toggle{
+  background-color: #ffffff;
+  border-color: #FCFCFC;
+  border-width: 0px;
+  padding: 16px;
+  border-style: solid;
+  /* background: rgba(255, 255, 255, 0.95); */
+  box-shadow: 0 1px 7px rgba(31, 50, 63, 0.25);
+  cursor: pointer;
+}
+.login-page-toggle-active{
+  background-color: #1C74C0;
+  border-color: #FCFCFC;
+  border-width: 0px;
+  padding: 20px;
+  border-style: solid;
+  /* background: rgba(255, 255, 255, 0.95); */
+  box-shadow: 0 1px 7px rgba(31, 50, 63, 0.25);
+  cursor: pointer;
+  }
+.login-page-toggle-active .h4-circle-active{
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+  background-color: #15558B;
+  color: #FFFFFF;
+  font-size: x-large;
+  border-radius: 1em;
+  font-family: fantasy;
+  /* box-shadow: 0 1px 7px rgba(232, 232, 232, 0.68); */
+  text-align: center;
+}  
+.login-page-toggle .h4-circle{
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+  background-color: #065191;
+  color: #FFFFFF;
+  font-size: x-large;
+  border-radius: 1em;
+  font-family: fantasy;
+  box-shadow: 0 1px 7px rgba(232, 232, 232, 0.68);
+  text-align: center;
+} 
+.login-page-toggle-active h3{
+  margin-top: 12px;
+/* font-weight: 300; */
+margin-left: -13px;
+color: #FFFFFF;
+}
+.login-page-container{
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+/* Login Page style - End*/
+
+/* customer Page */
+.cust-bg-icon{
+  font-size:100px;
+}
+
+/* Forgot Password */
+.forgotPwd{
+  padding: 16px;
+}

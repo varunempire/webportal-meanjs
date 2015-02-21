@@ -1,0 +1,18 @@
+@media (min-width: 992px) {
+	.nav-users {
+		position: fixed;
+	}
+}
+.remove-account-container {
+	display: inline-block;
+	position: relative;
+}
+.btn-remove-account {
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+.container-bg{
+	-webkit-box-shadow: 0 0 35px rgba(0,0,0,.4);
+	box-shadow: 0 0 35px rgba(0,0,0,.4);
+}
