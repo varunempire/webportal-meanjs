@@ -33,16 +33,7 @@
 
 	<!-- Fav Icon -->
 	<link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">	
-	<style>
-		#section-bg{
-			background-color: #efefef;
-			background-image: -webkit-radial-gradient(0% bottom,rgba(240, 240, 240, 0.7) 0,rgba(118,72,160,0) 60%),-webkit-radial-gradient(90% bottom,#efefef 0,rgba(82,63,140,0) 40%),-webkit-radial-gradient(50% top,rgba(239, 239, 239, 0.6) 0,rgba(84,90,182,0) 75%),-webkit-radial-gradient(right top,#efefef 0,rgba(121,74,162,0) 57%);
-			background-image: radial-gradient(at 0 bottom,rgba(203, 198, 208, 0.21) 0,rgba(118,72,160,0) 60%),radial-gradient(at 90% bottom,#efefef 0,rgba(82,63,140,0) 40%),radial-gradient(at 50% top,rgba(237, 230, 247, 0.41) 0,rgba(84,90,182,0) 75%),radial-gradient(at right top,rgba(255, 255, 255, 0) 0,rgba(121,74,162,0) 57%);
-			background-size: auto,auto,100% 1000px,100% 1000px;
-			background-repeat: no-repeat;
-			height: 100vh;
-		}		
-	</style>
+	
 
 	<!--Application CSS Files-->
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
@@ -55,7 +46,7 @@
 
 <body class="ng-cloak">
 	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default"></header>
-	<section class="content" id="section-bg">
+	<section class="content" >
 		<section class="container">
 			{% block content %}{% endblock %}
 		</section>
