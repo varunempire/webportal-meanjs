@@ -1,19 +1,41 @@
 <section data-ng-controller="LeavemangsController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Leavemangs</h1>
+        <h1></h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="leavemang in leavemangs" data-ng-href="#!/leavemangs/{{leavemang._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="leavemang.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="leavemang.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="leavemang.name"></h4>
-        </a>
+
+    <div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-list"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> Leaves List </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-12">
+                  <div class="list-group">
+                    <a data-ng-repeat="leavemang in leavemangs" data-ng-href="#!/leavemangs/{{leavemang._id}}" class="list-group-item">
+                        <small class="list-group-item-text">
+                            Posted on
+                            <span data-ng-bind="leavemang.created | date:'medium'"></span>
+                            by
+                            <span data-ng-bind="leavemang.user.displayName"></span>
+                        </small>
+                        <h4 class="list-group-item-heading" data-ng-bind="leavemang.name"></h4>
+                    </a>
+                </div>
+                <div class="alert alert-warning text-center" data-ng-hide="!leavemangs.$resolved || leavemangs.length">
+                    No Leavemangs yet, why don't you <a href="/#!/leavemangs/create">create one</a>?
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!leavemangs.$resolved || leavemangs.length">
-    	No Leavemangs yet, why don't you <a href="/#!/leavemangs/create">create one</a>?
-    </div>
+
+  
 </section>

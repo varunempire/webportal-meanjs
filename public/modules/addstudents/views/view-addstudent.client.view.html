@@ -1,21 +1,45 @@
 <section data-ng-controller="AddstudentsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="addstudent.name"></h1>
-	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == addstudent.user._id))">
-		<a class="btn btn-primary" href="/#!/addstudents/{{addstudent._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="addstudent.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="addstudent.user.displayName"></span>
-		</em>
-	</small>
+        <h1></h1>
+    </div>
+	<div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-edit"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> New Addstudent </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+					<h1 data-ng-bind="addstudent.name"></h1>
+				</div>
+				<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == addstudent.user._id))">
+					<a class="btn btn-primary" href="/#!/addstudents/{{addstudent._id}}/edit">
+						<i class="glyphicon glyphicon-edit"></i>
+					</a>
+					<a class="btn btn-primary" data-ng-click="remove();">
+						<i class="glyphicon glyphicon-trash"></i>
+					</a>
+				</div>
+				<small>
+					<em class="text-muted">
+						Posted on
+						<span data-ng-bind="addstudent.created | date:'mediumDate'"></span>
+						by
+						<span data-ng-bind="addstudent.user.displayName"></span>
+					</em>
+				</small>
+            </div>
+        </div>
+    </div>
+
+	
 </section>

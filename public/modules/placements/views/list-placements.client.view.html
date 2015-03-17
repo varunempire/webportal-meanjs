@@ -1,19 +1,40 @@
 <section data-ng-controller="PlacementsController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Placements</h1>
+        <h1></h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="placement in placements" data-ng-href="#!/placements/{{placement._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="placement.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="placement.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="placement.fname"></h4>
-        </a>
+    <div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-list"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> Placements List</h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+<br/><br/>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group">
+                    <a data-ng-repeat="placement in placements" data-ng-href="#!/placements/{{placement._id}}" class="list-group-item">
+                        <small class="list-group-item-text">
+                            Posted on
+                            <span data-ng-bind="placement.created | date:'medium'"></span>
+                            by
+                            <span data-ng-bind="placement.user.displayName"></span>
+                        </small>
+                        <h4 class="list-group-item-heading" data-ng-bind="placement.fname"></h4>
+                    </a>
+                </div>
+                <div class="alert alert-warning text-center" data-ng-hide="!placements.$resolved || placements.length">
+                    No Placements yet, why don't you <a href="/#!/placements/create">create one</a>?
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!placements.$resolved || placements.length">
-    	No Placements yet, why don't you <a href="/#!/placements/create">create one</a>?
-    </div>
+
+    
 </section>

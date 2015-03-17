@@ -1,8 +1,22 @@
 <section data-ng-controller="PlacementsController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Placement</h1>
+        <h1></h1>
     </div>
-    <div class="row-md-3">
+    <div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-edit"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> Edit Placement </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+
+         <div class="row-md-3">
         <h5>Basic Information</h5>
         <div class="col-md-4">
             <div class="form-group">
@@ -177,10 +191,12 @@
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
             </fieldset>
         </form>
     </div>
+    </div>
+   
 </section>

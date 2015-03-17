@@ -1,10 +1,24 @@
 <section data-ng-controller="PlacementsController">
     <div class="page-header">
-        <h1>Placement Details</h1>
+        <h1></h1>
     </div>
 
-    <div class="row-md-3">
-        <h5>Basic Information</h5>
+<div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-plus"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> Placement Details </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+
+       <div class="row-md-3">
+        <h5><b>Basic Information</b></h5>
         <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="name">First Name</label>
@@ -112,7 +126,7 @@
 
         </div>
         <div class="row-md-3">
-        <h5>Mark Details</h5>
+        <h5><b>Mark Details</b></h5>
         <div class="col-md-4">
             <div class="form-group">
                 <label class="control-label" for="name">Current semester </label>
@@ -190,4 +204,7 @@
             </fieldset>
         </form>
     </div> 
+    </div>
+
+    
 </section>

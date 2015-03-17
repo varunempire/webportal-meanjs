@@ -1,10 +1,26 @@
 <section data-ng-controller="AddstudentsController">
     <div class="page-header">
-        <h1>New Addstudent</h1>
+        <h1></h1>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+    <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
+    <div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-plus"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> New Addstudent </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-10">
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
@@ -35,7 +51,7 @@
                     </div>
                 </div>
 
-                 <div class="form-group">
+                <div class="form-group">
                     <label class="control-label" for="name">Course</label>
                     <div class="controls">
                         <input type="text" data-ng-model="course" id="name" class="form-control" 
@@ -51,6 +67,12 @@
                     </div>
                 </div>
 
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+                    
+                
                 <div class="form-group">
                     <label class="control-label" for="name">Year</label>
                     <div class="controls">
@@ -94,7 +116,16 @@
                         placeholder="Blood Group" required>
                     </div>
                 </div>
-                <!--Dayscolar-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                
+                <h2>Dayscolar</h2>
+                <div class="col-md-10">
+                 <!--Dayscolar-->
                 <div class="form-group">
                     <label class="control-label" for="name">Bus Route</label>
                     <div class="controls">
@@ -166,6 +197,11 @@
                         placeholder="Mobile Number" required>
                     </div>
                 </div>
+</div>
+            </div>
+            <div class="col-md-6">
+                <h2>Hostler</h2>
+                <div class="col-md-10">
                 <!--Hostler-->
                 <div class="form-group">
                     <label class="control-label" for="name">Room No</label>
@@ -251,10 +287,17 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </div>
+            </div>
+        </div>
+
     </div>
+
+ </fieldset>
+        </form>
+
+
 </section>
