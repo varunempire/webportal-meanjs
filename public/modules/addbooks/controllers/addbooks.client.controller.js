@@ -9,7 +9,29 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 		$scope.create = function() {
 			// Create new Addbook object
 			var addbook = new Addbooks ({
-				name: this.name
+				name: this.name,
+				bookno: this.bookno,
+				course: this.course,
+				dept: this.dept,
+				year: this.year,
+				sem: this.sem,
+				avbooks: this.avbooks,
+				edition: this.edition,
+				publisher: this.publisher,
+				author: this.author,
+				download: this.download,
+				edit: this.edit,
+				code: this.code,
+				sno: this.sno,
+				copy: this.copy,
+				regbook: this.regbook,
+				issue: this.issue,
+				penalty: this.penalty,
+				renewal: this.renewal,
+				mag: this.mag,
+				smag: this.smag,
+				Journals: this.Journals,
+				newspaper: this.newspaper
 			});
 
 			// Redirect after save

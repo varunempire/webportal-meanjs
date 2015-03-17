@@ -1,0 +1,186 @@
+<section data-ng-controller="PlacementsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Placement</h1>
+    </div>
+    <div class="row-md-3">
+        <h5>Basic Information</h5>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name">First Name</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.fname" id="name" class="form-control" placeholder="firstname" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Department</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.dept" id="name" class="form-control" placeholder="department" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Present address</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.preaddress" id="name" class="form-control" placeholder="present address" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="name"> Mail Id</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.mail" id="name" class="form-control" placeholder="mail id" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Caste</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.caste" id="name" class="form-control" placeholder="caste" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name">Last Name</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.lname" id="name" class="form-control" placeholder="last name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Year</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.year" id="name" class="form-control" placeholder="year" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Permanent Address</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.peraddress" id="name" class="form-control" placeholder="permanent address" required>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label" for="name">Nationality</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.nation" id="name" class="form-control" placeholder="nationality" required>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="control-label" for="name">Sex</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.sex" id="name" class="form-control" placeholder="sex" required>
+                </div>
+            </div>
+        </div>
+      </div>
+    <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label" for="name">Course</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.course" id="name" class="form-control" placeholder="course" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Roll No</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.rollno" id="name" class="form-control" placeholder="roll no" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="name">Mobile No</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.mobno" id="name" class="form-control" placeholder="mobiles no" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="name">Community</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.community" id="name" class="form-control" placeholder=" community" required>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label" for="name">Date Of Birth</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.dob" id="name" class="form-control" placeholder=" date of birth" required>
+                </div>
+            </div>
+
+        </div>
+        <div class="row-md-3">
+        <h5>Mark Details</h5>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name">Current semester </label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.cursem" id="name" class="form-control" placeholder=" current semester" required>
+                </div>
+            </div>
+
+                 <div class="form-group">
+                <label class="control-label" for="name">10th Medium Of Study  </label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.xmedofstudy" id="name" class="form-control" placeholder=" 10th medium of study" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="name"> Total Percentage  </label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.totalper" id="name" class="form-control" placeholder=" total perce" required>
+                </div>
+            </div>
+
+    </div>
+
+    <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name"> GPA</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.gpa" id="name" class="form-control" placeholder=" gpa" required>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name"> CGPA</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.cgpa" id="name" class="form-control" placeholder=" cgpa" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name">School Name</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.scname" id="name" class="form-control" placeholder=" school name" required>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="name">School Location</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="placement.sclocation" id="name" class="form-control" placeholder="school location" required>
+                </div>
+            </div>
+
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

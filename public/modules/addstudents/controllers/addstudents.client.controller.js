@@ -9,7 +9,30 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$s
 		$scope.create = function() {
 			// Create new Addstudent object
 			var addstudent = new Addstudents ({
-				name: this.name
+				name: this.name,
+				dateofbirth: this.dateofbirth,
+				rollno: this.rollno,
+				regno: this.regno,
+				course: this.course,
+				dept: this.dept,
+				year: this.year,
+				section: this.section,
+				mail: this.mail,
+				mobile: this.mobile,
+				blood: this.blood,
+				bus: this.bus,
+				presentaddress: this.presentaddress,
+				permanentaddress: this.permanentaddress,
+				fname: this.fname,
+				occupation: this.occupation,
+				fmobno: this.fmobno,
+				mname: this.mname,
+				moccupation: this.moccupation,
+				mmobno: this.mmobno,
+				roomno: this.roomno,
+				localgaddress: this.localgaddress,
+				doj: this.doj
+
 			});
 
 			// Redirect after save

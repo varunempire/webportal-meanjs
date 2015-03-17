@@ -7,145 +7,139 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Addbook Schema
+ * Placement Schema
  */
-var AddbookSchema = new Schema({
-	name: {
+var PlacementSchema = new Schema({
+	fname: {
 		type: String,
 		default: '',
-		required: 'Please fill Addbook name',
-		trim: true
-	},
-	bookno: {
-		type: String,
-		default: '',
-		required: 'Please fill bkno name',
-		trim: true
-	},
-	course: {
-		type: String,
-		default: '',
-		required: 'Please fill crse name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
 	dept: {
 		type: String,
 		default: '',
-		required: 'Please fill dept name',
+		required: 'Please fill Placement name',
+		trim: true
+	},
+	preaddress: {
+		type: String,
+		default: '',
+		required: 'Please fill Placement name',
+		trim: true
+	},
+	mail: {
+		type: String,
+		default: '',
+		required: 'Please fill Placement name',
+		trim: true
+	},
+	caste: {
+		type: String,
+		default: '',
+		required: 'Please fill Placement name',
+		trim: true
+	},
+	lname: {
+		type: String,
+		default: '',
+		required: 'Please fill Placement name',
 		trim: true
 	},
 	year: {
 		type: String,
 		default: '',
-		required: 'Please fill year name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	sem: {
+	peraddress: {
 		type: String,
 		default: '',
-		required: 'Please fill sem name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	avbooks: {
+	nation: {
 		type: String,
 		default: '',
-		required: 'Please fill avbooks name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	edition: {
+	sex: {
 		type: String,
 		default: '',
-		required: 'Please fill edition name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	publisher: {
+	course: {
 		type: String,
 		default: '',
-		required: 'Please fill publisher name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	author: {
+	rollno: {
 		type: String,
 		default: '',
-		required: 'Please fill author name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	download: {
+	mobno: {
 		type: String,
 		default: '',
-		required: 'Please fill download name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	edit: {
+	community: {
 		type: String,
 		default: '',
-		required: 'Please fill edit name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	code: {
+	dob: {
 		type: String,
 		default: '',
-		required: 'Please fill code name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	sno: {
+	cursem: {
 		type: String,
 		default: '',
-		required: 'Please fill sno name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	copy: {
+	xmedofstudy: {
 		type: String,
 		default: '',
-		required: 'Please fill copy name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	regbook: {
+	totalper: {
 		type: String,
 		default: '',
-		required: 'Please fill regbook name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	issue: {
+	gpa: {
 		type: String,
 		default: '',
-		required: 'Please fill issue name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	penalty: {
+	cgpa: {
 		type: String,
 		default: '',
-		required: 'Please fill penalty name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	renewal: {
+	scname: {
 		type: String,
 		default: '',
-		required: 'Please fill renewal name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
-	mag: {
+	sclocation: {
 		type: String,
 		default: '',
-		required: 'Please fill mag name',
-		trim: true
-	},
-	smag: {
-		type: String,
-		default: '',
-		required: 'Please fill smag name',
-		trim: true
-	},
-	Journals: {
-		type: String,
-		default: '',
-		required: 'Please fill Journals name',
-		trim: true
-	},
-	newspaper: {
-		type: String,
-		default: '',
-		required: 'Please fill newspaper name',
+		required: 'Please fill Placement name',
 		trim: true
 	},
 	created: {
@@ -158,4 +152,4 @@ var AddbookSchema = new Schema({
 	}
 });
 
-mongoose.model('Addbook', AddbookSchema);
+mongoose.model('Placement', PlacementSchema);

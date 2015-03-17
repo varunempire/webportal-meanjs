@@ -7,123 +7,91 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Addstudent Schema
+ * Staff Schema
  */
-var AddstudentSchema = new Schema({
+var StaffSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Addstudent name',
-		trim: true
-	},
-	dateofbirth: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	rollno: {
-		type: String,
-		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
 	regno: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
 	course: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
 	dept: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
 	year: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	section: {
+	sec: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	mail: {
+	cursem: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	mobile: {
+	leave: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	blood: {
+	attendance: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	bus: {
+	mark1: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	presentaddress: {
+	mark2: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	permanentaddress: {
+	mark3: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	fname: {
+	mark4: {
 		type: String,
 		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
-	occupation: {
+	mark5: {
 		type: String,
 		default: '',
-		trim: true
-	},
-	fmobno: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	mname: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	moccupation: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	mmobno: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	roomno: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	localgaddress: {
-		type: String,
-		default: '',
-		trim: true
-	},
-	doj: {
-		type: String,
-		default: '',
+		required: 'Please fill Staff name',
 		trim: true
 	},
 	created: {
@@ -136,4 +104,4 @@ var AddstudentSchema = new Schema({
 	}
 });
 
-mongoose.model('Addstudent', AddstudentSchema);
+mongoose.model('Staff', StaffSchema);

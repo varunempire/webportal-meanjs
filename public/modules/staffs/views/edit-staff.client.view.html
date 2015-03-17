@@ -1,0 +1,120 @@
+<section data-ng-controller="StaffsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Staff</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.name" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Register No</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.regno" id="name" class="form-control" placeholder="Register No" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Course</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.course" id="name" class="form-control"
+                        placeholder="Course" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Department</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.dept" id="name" class="form-control" 
+                        placeholder="Department" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Year</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.year" id="name" class="form-control" 
+                        placeholder="Year" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Section</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.sec" id="name" class="form-control" 
+                        placeholder="Section" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Current Semester</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.cursem" id="name" class="form-control"
+                        placeholder="Current Semester" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">No of days leave taken</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.leave" id="name" class="form-control" placeholder="No of days leave taken" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="Attendance Percentage">Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.attendance" id="name" class="form-control" placeholder="Attendance Percentage" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Unit I Mark</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.mark1" id="name" class="form-control" placeholder="Unit I Mark" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Unit II Mark</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.mark2" id="name" class="form-control" placeholder="Unit II Mark" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Model Mark</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.mark3" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">Overall Internal Mark</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.mark4" id="name" class="form-control" placeholder="Overall Internal Mark" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="name">External Mark</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staff.mark5" id="name" class="form-control" placeholder="External Mark" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
