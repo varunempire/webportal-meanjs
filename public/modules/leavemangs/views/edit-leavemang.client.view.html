@@ -1,5 +1,5 @@
 <section data-ng-controller="LeavemangsController" data-ng-init="findOne()">
-    <div class="page-header">
+    <div style="padding-bottom: 9px;margin: 40px 0 20px;">
         <h1></h1>
     </div>
 
@@ -18,13 +18,70 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-left:10px">
                 <form class="form-horizontal" data-ng-submit="update()" novalidate>
                     <fieldset>
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
                             <div class="controls">
                                 <input type="text" data-ng-model="leavemang.name" id="name" class="form-control" placeholder="Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Roll No</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.rollno" id="name" class="form-control" placeholder="Roll No" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Course</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.course" id="name" class="form-control" placeholder="Course" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Department</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.dept" id="name" class="form-control" placeholder="Department" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Year</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.year" id="name" class="form-control" placeholder="Year" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Section</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.section" id="name" class="form-control" placeholder="Section" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">Reason</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.reason" id="name" class="form-control" placeholder="Reason" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">From</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.from" id="name" class="form-control" placeholder="From" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="name">To</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leavemang.to" id="name" class="form-control" placeholder="TO" required>
                             </div>
                         </div>
                         <div class="form-group">

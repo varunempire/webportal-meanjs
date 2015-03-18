@@ -10,6 +10,20 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$stateParams
 			// Create new Staff object
 			var staff = new Staffs ({
 				name: this.name,
+				dept: this.dept,
+				dob: this.dob,
+				peradd: this.peradd,
+				mail: this.mail,
+				mob: this.mob,
+				experience: this.experience,
+				qualification: this.qualification,
+				maritial: this.maritial,
+				gender: this.gender,
+				religion: this.religion,
+				caste: this.caste,
+				community: this.community,
+				/*
+				name: this.name,
 				regno: this.regno,
 				course: this.course,
 				dept: this.dept,
@@ -22,7 +36,7 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$stateParams
 				mark2: this.mark2,
 				mark3: this.mark3,
 				mark4: this.mark4,
-				mark5: this.mark5				
+				mark5: this.mark5	*/			
 			});
 
 			// Redirect after save

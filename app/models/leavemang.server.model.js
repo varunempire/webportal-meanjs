@@ -13,7 +13,46 @@ var LeavemangSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Leavemang name',
+		trim: true
+	},
+	rollno: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	course: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	dept: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	year: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	section: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	reason: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	from: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	to: {
+		type: String,
+		default: '',
 		trim: true
 	},
 	created: {

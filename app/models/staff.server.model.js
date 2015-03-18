@@ -16,6 +16,85 @@ var StaffSchema = new Schema({
 		required: 'Please fill Staff name',
 		trim: true
 	},
+	dept: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	dob: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	peradd: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	mail: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	mob: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	experience: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	qualification: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	maritial: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	gender: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	religion: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	caste: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	community: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
+	/*
+	name: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff name',
+		trim: true
+	},
 	regno: {
 		type: String,
 		default: '',
@@ -93,7 +172,7 @@ var StaffSchema = new Schema({
 		default: '',
 		required: 'Please fill Staff name',
 		trim: true
-	},
+	}, */
 	created: {
 		type: Date,
 		default: Date.now

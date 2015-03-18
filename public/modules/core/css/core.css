@@ -111,3 +111,232 @@ color: #FFFFFF;
 .forgotPwd{
   padding: 16px;
 }
+
+/* Home design */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(http://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.min.css);
+
+body {
+  background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+}
+#weather_wrapper{
+  width: 400px;
+  margin: 100px auto;
+}
+.weatherCard{
+  width: 400px;
+  height: 200px;
+  font-family: 'Open Sans';
+  position: relative;
+}
+.currentTemp{
+  width: 220px;
+  height: 200px;
+  background: rgb(41, 41, 41);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.currentWeather{
+  width: 180px;
+  height: 200px;
+  background: rgb(237, 237, 237);
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.temp{
+  font-size: 80px;
+  text-align: center;
+  display: block;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+  padding: 20px 0 0;
+}
+.location{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 30px;
+  display: block;
+}
+.conditions{
+  font-family: weathericons;
+  font-size: 80px;
+  display: block;
+  padding: 20px 0 0;
+  text-align: center;
+}
+.info{
+  width: 180px;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgb(42, 178, 234);
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.rain {
+  width: 50%;
+  position: absolute;
+  left: 10px;
+  word-spacing: 60px;
+  top: 3px;
+}
+.rain::before{
+  display: block;
+  content: '\f04e';
+  font-family: weathericons;
+  font-size: 40px;
+  left: 6px;
+  top: -4px;
+  position: absolute;
+}
+.wind {
+  width: 50%;
+  right: -10px;
+  position: absolute;
+  word-spacing: 60px;
+  top: 3px;
+}
+.wind::before{
+  display: block;
+  content: '\f050';
+  font-family: weathericons;
+  font-size: 25px;
+  left: -10px;
+  position: absolute;
+  top: 5px;
+}
+
+
+
+/**/
+
+
+div.business-card {
+  height: 350px;
+  width: 320px;
+  margin-left: -160px;
+  margin-top: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  perspective: 1000;
+}
+div.business-card:hover .flipper, div.business-card.hover .flipper {
+  transform: rotateY(180deg) rotateZ(90deg);
+}
+
+div.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  transform-origin: center 160px;
+}
+
+div.front, div.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 350px;
+  width: 320px;
+  box-shadow: 0 0 50px rgba(226, 224, 222, 0.71);
+}
+
+div.front {
+  background-color: white;
+  z-index: 0;
+}
+div.front:before, div.front:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 160px;
+  border-style: solid;
+  border-color: transparent;
+}
+div.front:before {
+  border-top-color: #F58813;
+  border-left-color: #F89117;
+  z-index: 2;
+}
+div.front:after {
+  border-top-color: #F89117;
+  border-right-color: #F58813;
+}
+div.front div.name {
+  position: absolute;
+  bottom: 8.5px;
+  left: 85px;
+}
+div.front div.name span {
+  display: block;
+  font-size: 40px;
+  line-height: 45px;
+}
+div.front div.name span.first {
+  color: #005D8C;
+}
+div.front div.name span.last {
+  color: #288FBD;
+}
+div.front div.name span.title {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+div.back {
+  background-color: #fff;
+  color: white;
+  width: 310px;
+  height: 280px;
+  box-sizing: border-box;
+  transform: rotateY(180deg) rotateZ(90deg);
+}
+div.back div.container-sm {
+  float: left;
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+div.back div.container-lg {
+  float: left;
+  width: 60%;
+  margin-top: 2rem;
+}
+div.back figure.logo-white {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: -60px -60px;
+
+}
+
+div.back a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+div.back a:hover {
+  text-decoration: underline;
+}
+div.back ul.social {
+  font-size: 1.25rem;
+}
+div.back ul.social li {
+  margin-top: 1rem;
+}
+div.back ul.social li:first-child {
+  margin-top: 2rem;
+}

@@ -9,7 +9,15 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		$scope.create = function() {
 			// Create new Leavemang object
 			var leavemang = new Leavemangs ({
-				name: this.name
+				name: this.name,
+				rollno: this.rollno,
+				course: this.course,
+				dept: this.dept,
+				year: this.year,
+				section: this.section,
+				reason: this.reason,
+				from: this.from,
+				to: this.to
 			});
 
 			// Redirect after save
@@ -22,6 +30,8 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 				$scope.error = errorResponse.data.message;
 			});
 		};
+
+		
 
 		// Remove existing Leavemang
 		$scope.remove = function(leavemang) {

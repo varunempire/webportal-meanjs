@@ -1,5 +1,5 @@
 <section data-ng-controller="StaffsController" data-ng-init="findOne()">
-    <div class="page-header">
+    <div style="padding-bottom: 9px;margin: 40px 0 20px;">
         <h1></h1>
     </div>
  <form class="form-horizontal" data-ng-submit="update()" novalidate>
@@ -21,7 +21,98 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="col-md-10">
-                     <div class="form-group">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.name" id="name" class="form-control" placeholder="Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Department</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.dept" id="name" class="form-control" placeholder="Department" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Date of Birth</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.dob" id="name" class="form-control" placeholder="NaDate of Birthme" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Permanent Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.peradd" id="name" class="form-control" placeholder="Permanent Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mail Id</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.mail" id="name" class="form-control" placeholder="Mail Id" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mobile No</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.mob" id="name" class="form-control" placeholder="Mobile No" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Experience</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.experience" id="name" class="form-control" placeholder="Experience" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Qualification</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.qualification" id="name" class="form-control" placeholder="Qualification" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Maritial Status</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.maritial" id="name" class="form-control" placeholder="Maritial Status" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Gender</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.gender" id="name" class="form-control" placeholder="Gender" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Religion</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.religion" id="name" class="form-control" placeholder="Religion" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Caste</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.caste" id="name" class="form-control" placeholder="Caste" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Community</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="staff.community" id="name" class="form-control" placeholder="Community" required>
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
                         <input type="text" data-ng-model="staff.name" id="name" class="form-control" placeholder="Name" required>
@@ -126,7 +217,7 @@
                     <div class="controls">
                         <input type="text" data-ng-model="staff.mark5" id="name" class="form-control" placeholder="External Mark" required>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">

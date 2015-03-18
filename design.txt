@@ -1,0 +1,28 @@
+<div class="container  login-page-bg">
+        <div class="row" style=" margin-top: -18px;margin-left: -18px;">
+            <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
+                <div clsss="row">
+                    <div class="col-md-1">
+                        <span class="h4-circle-active"><i class="glyphicon glyphicon-edit"></i></span>
+                    </div>
+                    <div class="col-md-11 pull-left">
+                        <h3 class="text-default"> New Addbook </h3>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-10">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+SHREWDSYS
