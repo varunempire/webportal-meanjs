@@ -31,10 +31,19 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Date Of Birth</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="dateofbirth" id="name" class="form-control" placeholder="Date Of Birth" required>
+                        <!-- <input type="text"  id="name" class="form-control" placeholder="Date Of Birth" required> -->
+                        
+                        <p class="input-group">
+                          <input type="text" class="form-control" placeholder="dd-MMMM-yyyy" data-ng-model="dateofbirth" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+
                     </div>
                 </div>
 
+                
                 <div class="form-group">
                     <label class="control-label" for="name">Roll No</label>
                     <div class="controls">
@@ -122,175 +131,193 @@
 
         <div class="row">
             <div class="col-md-6">
-                
-                <h2>Day Scholar</h2>
-                <div class="col-md-10">
-                 <!--Dayscolar-->
-                <div class="form-group">
-                    <label class="control-label" for="name">Bus Route</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="bus" id="name" class="form-control" 
-                        placeholder="Bus Route" required>
-                    </div>
+               <!--  <pre>{{radioModel || 'null'}}</pre> -->
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'dayscholar'">Day Scholar</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'hosteler'">Hosteler</label>
                 </div>
+            </div>
+        </div>
+        <div class="row" ng-show="radioModel == 'dayscholar'">
+            <div class="col-md-6">
+                 <div class="col-md-10">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Bus Route</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="bus" id="name" class="form-control" 
+                            placeholder="Bus Route" required>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Present Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="presentaddress" id="name" class="form-control" 
-                        placeholder="Present Address" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Present Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="presentaddress" id="name" class="form-control" 
+                            placeholder="Present Address" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Permanent Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="permanentaddress" id="name" class="form-control" 
-                        placeholder="Permanent Address" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Permanent Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="permanentaddress" id="name" class="form-control" 
+                            placeholder="Permanent Address" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Father's Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="fname" id="name" class="form-control" 
-                        placeholder="Father's Name" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Father's Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="fname" id="name" class="form-control" 
+                            placeholder="Father's Name" required>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Occupation</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="occupation" id="name" class="form-control" 
-                        placeholder="Occupation" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Occupation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="occupation" id="name" class="form-control" 
+                            placeholder="Occupation" required>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mobile Number</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="fmobno" id="name" class="form-control" 
-                        placeholder="Mobile Number" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mother's Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="mname" id="name" class="form-control" 
-                        placeholder="Mother's Name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Occupation</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="moccupation" id="name" class="form-control" 
-                        placeholder="Occupation" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mobile Number</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="mmobno" id="name" class="form-control" 
-                        placeholder="Mobile Number" required>
-                    </div>
-                </div>
-</div>
             </div>
             <div class="col-md-6">
-                <h2>Hosteler</h2>
                 <div class="col-md-10">
-                <!--Hostler-->
-                <div class="form-group">
-                    <label class="control-label" for="name">Room No</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="roomno" id="name" class="form-control" 
-                        placeholder="Room No" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mobile Number</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="fmobno" id="name" class="form-control" 
+                            placeholder="Mobile Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mother's Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="mname" id="name" class="form-control" 
+                            placeholder="Mother's Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Occupation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="moccupation" id="name" class="form-control" 
+                            placeholder="Occupation" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mobile Number</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="mmobno" id="name" class="form-control" 
+                            placeholder="Mobile Number" required>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Permanent Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="permanentaddress" id="name" class="form-control" 
-                        placeholder="Permanent Address" required>
+        <div class="row" ng-show="radioModel == 'hosteler'">
+            <div class="col-md-6">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Room No</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="roomno" id="name" class="form-control" 
+                            placeholder="Room No" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Permanent Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="permanentaddress" id="name" class="form-control" 
+                            placeholder="Permanent Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Local Guardian Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="localgaddress" id="name" class="form-control" 
+                            placeholder="Local Guardian Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Date of Joining</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="doj" id="name" class="form-control" 
+                            placeholder="Date of Joining" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Father's Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="fname" id="name" class="form-control" 
+                            placeholder="Father's Name" required>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Occupation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="occupation" id="name" class="form-control" 
+                            placeholder="Occupation" required>
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Local Guardian Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="localgaddress" id="name" class="form-control" 
-                        placeholder="Local Guardian Address" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mobile Number</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="fmobno" id="name" class="form-control" 
+                            placeholder="Mobile Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mother's Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="mname" id="name" class="form-control" 
+                            placeholder="Mother's Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Occupation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="moccupation" id="name" class="form-control" 
+                            placeholder="Occupation" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Mobile Number</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="mmobno" id="name" class="form-control" 
+                            placeholder="Mobile Number" required>
+                        </div>
                     </div>
                 </div>
+            </div>            
+        </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="name">Date of Joining</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="doj" id="name" class="form-control" 
-                        placeholder="Date of Joining" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Father's Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="fname" id="name" class="form-control" 
-                        placeholder="Father's Name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Occupation</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="occupation" id="name" class="form-control" 
-                        placeholder="Occupation" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mobile Number</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="fmobno" id="name" class="form-control" 
-                        placeholder="Mobile Number" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mother's Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="mname" id="name" class="form-control" 
-                        placeholder="Mother's Name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Occupation</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="moccupation" id="name" class="form-control" 
-                        placeholder="Occupation" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Mobile Number</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="mmobno" id="name" class="form-control" 
-                        placeholder="Mobile Number" required>
-                    </div>
-                </div>
-
-
+        <div class="row">
+            <div class="col-md-6" >
+                 <div class="col-md-10">
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary">
                 </div>
                 <div data-ng-show="error" class="text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
-            </div>
+                       <strong data-ng-bind="error"></strong>
+                 </div>
+             </div>
             </div>
         </div>
 

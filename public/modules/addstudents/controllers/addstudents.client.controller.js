@@ -1,9 +1,25 @@
 'use strict';
 
 // Addstudents controller
-angular.module('addstudents').controller('AddstudentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Addstudents',
-	function($scope, $stateParams, $location, Authentication, Addstudents) {
+angular.module('addstudents').controller('AddstudentsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Addstudents',
+	function($scope, $http, $stateParams, $location, Authentication, Addstudents) {
 		$scope.authentication = Authentication;
+
+		
+		$scope.clear = function () {
+			$scope.dateofbirth = null;
+		};
+
+
+		$scope.open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.opened = true;
+		};
+
+		$scope.radioModel = 'dayscholar';
+		$scope.credentials ={};
 
 		// Create new Addstudent
 		$scope.create = function() {
@@ -37,10 +53,24 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$s
 
 			// Redirect after save
 			addstudent.$save(function(response) {
-				$location.path('addstudents/' + response._id);
 
-				// Clear form fields
-				$scope.name = '';
+				$scope.credentials.firstName = response.name;
+				$scope.credentials.lastName = response.name;
+				$scope.credentials.email = response.mail;
+				$scope.credentials.username = response.year+''+response.dept+''+response.regno;
+				$scope.credentials.password = response.year+''+response.dept+''+response.regno+''+response.year+''+response.dept+''+response.regno;
+				$scope.credentials.confirmpassword = $scope.credentials.password;
+
+				$http.post('/auth/signup', $scope.credentials).success(function(res) {
+					$location.path('addstudents/' + response._id);
+
+					// Clear form fields
+					$scope.name = '';
+				}).error(function(res) {
+					$scope.error = res.message;
+				});
+
+				
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

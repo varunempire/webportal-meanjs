@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
 exports.create = function(req, res) {
 	var addstudent = new Addstudent(req.body);
 	addstudent.user = req.user;
-
+	
 	addstudent.save(function(err) {
 		if (err) {
 			return res.status(400).send({

@@ -30,7 +30,13 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Date Of Birth</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="addstudent.dateofbirth" id="name" class="form-control" placeholder="Date Of Birth" required>
+                          <p class="input-group">
+                          <input type="text" class="form-control" placeholder="dd-MMMM-yyyy" data-ng-model="addstudent.dateofbirth" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                        
                     </div>
                 </div>
                 <div class="form-group">
@@ -104,49 +110,61 @@
 
         <div class="row">
             <div class="col-md-6">
+               <!--  <pre>{{radioModel || 'null'}}</pre> -->
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'dayscholar'">Day Scholar</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'hosteler'">Hosteler</label>
+                </div>
+            </div>
+        </div>
+        <span ng-show="false">{{!_.isEmpty(addstudent.bus) ? radioModel = 'dayscholar' : radioModel = 'hosteler'}}</span>
+        <div class="row" ng-show="radioModel == 'dayscholar'">
+            <div class="col-md-6">
                 <div class="col-md-10">
-                    <!--Dayscolar-->
-                <div class="form-group">
-                    <label class="control-label" for="name">Bus Route</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="addstudent.bus" id="name" class="form-control" 
-                        placeholder="Bus Route" required>
+                    <div class="form-group">
+                        <label class="control-label" for="name">Bus Route</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="addstudent.bus" id="name" class="form-control" 
+                            placeholder="Bus Route" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Present Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="addstudent.presentaddress" id="name" class="form-control" 
+                            placeholder="Present Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Permanent Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="addstudent.permanentaddress" id="name" class="form-control" 
+                            placeholder="Permanent Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Father's Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="addstudent.fname" id="name" class="form-control" 
+                            placeholder="Father's Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Occupation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="addstudent.occupation" id="name" class="form-control" 
+                            placeholder="Occupation" required>
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Present Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="addstudent.presentaddress" id="name" class="form-control" 
-                        placeholder="Present Address" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Permanent Address</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="addstudent.permanentaddress" id="name" class="form-control" 
-                        placeholder="Permanent Address" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Father's Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="addstudent.fname" id="name" class="form-control" 
-                        placeholder="Father's Name" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label" for="name">Occupation</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="addstudent.occupation" id="name" class="form-control" 
-                        placeholder="Occupation" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+                    <div class="form-group">
                     <label class="control-label" for="name">Mobile Number</label>
                     <div class="controls">
                         <input type="text" data-ng-model="addstudent.fmobno" id="name" class="form-control" 
@@ -179,10 +197,12 @@
                 </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row" ng-show="radioModel == 'hosteler'">
             <div class="col-md-6">
                 <div class="col-md-10">
-                    <!--Hostler-->
-                <div class="form-group">
+                     <div class="form-group">
                     <label class="control-label" for="name">Room No</label>
                     <div class="controls">
                         <input type="text" data-ng-model="addstudent.roomno" id="name" class="form-control" 
@@ -229,8 +249,11 @@
                         placeholder="Occupation" required>
                     </div>
                 </div>
-
-                <div class="form-group">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+                     <div class="form-group">
                     <label class="control-label" for="name">Mobile Number</label>
                     <div class="controls">
                         <input type="text" data-ng-model="addstudent.fmobno" id="name" class="form-control" 
@@ -261,9 +284,14 @@
                         placeholder="Mobile Number" required>
                     </div>
                 </div>
+                </div>
+            </div>
+        </div>
 
-
-                <div class="form-group">
+        <div class="row">
+            <div class="col-md-6" >
+                <div class="col-md-10">
+                    <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
                 <div data-ng-show="error" class="text-danger">
@@ -272,6 +300,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
         
