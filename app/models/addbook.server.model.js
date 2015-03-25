@@ -76,12 +76,19 @@ var AddbookSchema = new Schema({
 		required: 'Please fill download name',
 		trim: true
 	},
-	edit: {
+	/*edit: {
 		type: String,
 		default: '',
 		required: 'Please fill edit name',
 		trim: true
-	},
+	}*/
+	image: { // <--- nested document (not sub document)
+        modificationDate: {type: Date},
+        name: {type: String},
+        size: {type: Number},
+        type: {type: String},
+        filename: {type: String}
+    },
 	code: {
 		type: String,
 		default: '',

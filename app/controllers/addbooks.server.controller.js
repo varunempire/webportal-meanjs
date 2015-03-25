@@ -6,7 +6,8 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Addbook = mongoose.model('Addbook'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	fs = require('fs');
 
 /**
  * Create a Addbook
@@ -104,4 +105,51 @@ exports.hasAuthorization = function(req, res, next) {
 		return res.status(403).send('User is not authorized');
 	}
 	next();
+};
+
+/**
+ * Addbook file upload
+ */
+exports.upload = function (req, res) {
+
+    var oldPath = req.files.myFile.path;
+    var separator = '\\';
+    var filename = oldPath.split(separator)[oldPath.split(separator).length-1];
+    var newPath = ['uploads', filename].join(separator);
+
+    console.log('>>>>>');
+    console.log('__dirname', __dirname);
+    console.log('oldPath', oldPath);
+    console.log('newPath: ', newPath);
+    console.log('filename: ', filename);
+
+    fs.rename(oldPath, oldPath, function (err) {
+        if (err === null) {
+            var image = {
+                /*title: req.body.title || "???",
+                author: req.body.author || "???",
+                description: req.body.description || "???",*/
+                image: {
+                    modificationDate: req.files.myFile.modifiedDate || new Date(),
+                    name: req.files.myFile.name || "???",
+                    size: req.files.myFile.size || 0,
+                    type: req.files.myFile.type || "???",
+                    filename: newPath
+                }
+            };
+            var addbook = new Addbook(image);
+
+            console.log('Renaming file to ', req.files.myFile.name);
+
+            addbook.save(function (err) {
+
+                var retObj = {
+                    meta: {"action": "upload", 'timestamp': new Date(), filename: __filename},
+                    doc: addbook,
+                    err: err
+                };
+                return res.send(retObj);
+            });
+        }
+    });
 };

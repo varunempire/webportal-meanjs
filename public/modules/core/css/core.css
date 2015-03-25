@@ -340,3 +340,17 @@ div.back ul.social li {
 div.back ul.social li:first-child {
   margin-top: 2rem;
 }
+div.drop-box {
+   background: #F8F8F8;
+	border: 5px dashed #54AE54;
+	/* width: 200px; */
+	/* height: 65px; */
+	text-align: center;
+	padding-top: 35px;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+div.drop-box.dragover {
+    border: 5px dashed blue;
+}

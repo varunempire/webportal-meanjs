@@ -13,6 +13,10 @@ module.exports = function(app) {
 		.get(addbooks.read)
 		.put(users.requiresLogin, addbooks.hasAuthorization, addbooks.update)
 		.delete(users.requiresLogin, addbooks.hasAuthorization, addbooks.delete);
+	
+	// Upload Route
+	app.route('/upload')
+		.post(addbooks.upload);
 
 	// Finish by binding the Addbook middleware
 	app.param('addbookId', addbooks.addbookByID);

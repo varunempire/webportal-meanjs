@@ -1,12 +1,39 @@
 'use strict';
 
 // Addbooks controller
-angular.module('addbooks').controller('AddbooksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Addbooks',
-	function($scope, $stateParams, $location, Authentication, Addbooks) {
+angular.module('addbooks').controller('AddbooksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Addbooks', '$timeout', '$upload',
+	function($scope, $stateParams, $location, Authentication, Addbooks, $timeout, $upload) {
 		$scope.authentication = Authentication;
 
 		// Create new Addbook
 		$scope.create = function() {
+			
+			//image
+			console.log($scope.selectedFiles.length);
+	    	$files = $scope.selectedFiles;
+	        $scope.progress[index] = 0;
+	        console.log('starting...');
+	        console.log($files);
+	        $scope.paths = [];
+		    for (var index = 0; index < $files.length; index++) {
+		        console.log('path= '+$files[index].name);
+		        $scope.paths[index] = './uploads/'+$files[index].name; 
+		        $scope.upload[index] = $upload.upload({
+		        		method: 'POST',
+		            url: 'upload',
+		            headers: {'Content-Type': 'multipart/form-data' },
+		            file: $scope.selectedFiles[index],
+		            fileFormDataName: 'myFile'
+		                    }).then(function (_result) {
+		                console.log('$upload: ' + JSON.stringify(_result));
+		                //file.cancel()
+		            }, function error(err) {
+		                console.log('[$upload] received error: ' + JSON.stringify(err));
+		            });
+		        
+		        }
+		    console.log('hang...');
+	    
 			// Create new Addbook object
 			var addbook = new Addbooks ({
 				name: this.name,
@@ -20,7 +47,8 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 				publisher: this.publisher,
 				author: this.author,
 				download: this.download,
-				edit: this.edit,
+				//edit: this.edit,
+				image: $scope.paths,
 				code: this.code,
 				sno: this.sno,
 				copy: this.copy,
@@ -84,5 +112,39 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 				addbookId: $stateParams.addbookId
 			});
 		};
+		
+		$scope.selectedFiles = [];
+		$scope.progress = [];
+        $scope.upload = [];
+        $scope.uploadResult = [];
+        $scope.dataUrls = [];
+        
+		$scope.onFileSelect = function ($files) {
+		  	
+	        $scope.selectedFiles = $files;
+	        
+	        //limite
+	        if($files.length>4)
+				{$files.length=4;}
+	        
+	        for (var i = 0; i < $files.length; i++) {
+	            var $file = $files[i];
+	            if (window.FileReader) {
+	                var fileReader = new FileReader();
+	                fileReader.readAsDataURL($files[i]);
+	                function setPreview(fileReader, index) {
+	                    fileReader.onload = function (e) {
+	                        $timeout(function () {
+	                            $scope.dataUrls[index] = e.target.result;
+	                        });
+	                    }
+	                };
+	
+	                setPreview(fileReader, i);
+	            }
+	            $scope.progress[i] = -1;
+	        }
+    
+	  };
 	}
 ]);
