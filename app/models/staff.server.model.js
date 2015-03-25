@@ -25,7 +25,7 @@ var StaffSchema = new Schema({
 	dob: {
 		type: String,
 		default: '',
-		required: 'Please fill Staff name',
+		required: 'Please enter valid Date of Birth',
 		trim: true
 	},
 	peradd: {
@@ -86,6 +86,17 @@ var StaffSchema = new Schema({
 		type: String,
 		default: '',
 		required: 'Please fill Staff name',
+		trim: true
+	},
+	staffid: {
+		type: String,
+		default: '',
+		required: 'Please fill Staff ID',
+		trim: true
+	},
+	designation: {
+		type: String,
+		default: '',
 		trim: true
 	},
 	/*

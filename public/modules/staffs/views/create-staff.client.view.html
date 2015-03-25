@@ -37,9 +37,23 @@
                     </div>
 
                     <div class="form-group">
+                    <label class="control-label" for="name">Staff Id</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="staffid" id="name" class="form-control" placeholder="Staff Id" required>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
                     <label class="control-label" for="name">Date of Birth</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="dob" id="name" class="form-control" placeholder="Date of Birth" required>
+                        <!-- <input type="text" data-ng-model="dob" id="name" class="form-control" placeholder="Date of Birth" required> -->
+
+                        <p class="input-group">
+                          <input type="text" class="form-control" placeholder="dd-MMMM-yyyy" data-ng-model="dob" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
                     </div>
                     </div>
 
@@ -70,6 +84,17 @@
                         <input type="text" data-ng-model="experience" id="name" class="form-control" placeholder="Experience" required>
                     </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-10">
+
+                    <div class="form-group">
+                        <label class="control-label" for="name">Designation</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="designation" id="name" class="form-control" placeholder="Designation" required>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                     <label class="control-label" for="name">Qualification</label>
@@ -81,13 +106,19 @@
                     <div class="form-group">
                     <label class="control-label" for="name">Maritial Status</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="maritial" id="name" class="form-control" placeholder="Maritial Status" required>
+                        <select class="form-control" data-ng-model="maritial" id="name" class="form-control">
+                          <option>Single</option>
+                          <option>Married</option>
+                        </select>
                     </div>
                     </div>
                     <div class="form-group">
                     <label class="control-label" for="name">Gender</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="gender" id="name" class="form-control" placeholder="Gender" required>
+                         <select class="form-control" data-ng-model="gender" id="name" class="form-control">
+                          <option>Male</option>
+                          <option>Female</option>
+                        </select>
                     </div>
                     </div>
 

@@ -1,9 +1,22 @@
 'use strict';
 
 // Staffs controller
-angular.module('staffs').controller('StaffsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Staffs',
-	function($scope, $stateParams, $location, Authentication, Staffs) {
+angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Staffs',
+	function($scope, $http, $stateParams, $location, Authentication, Staffs) {
 		$scope.authentication = Authentication;
+		$scope.clear = function () {
+			$scope.dateofbirth = null;
+		};
+
+
+		$scope.open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.opened = true;
+
+		};
+		$scope.staffcredentials ={};
 
 		// Create new Staff
 		$scope.create = function() {
@@ -22,6 +35,8 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$stateParams
 				religion: this.religion,
 				caste: this.caste,
 				community: this.community,
+				staffid:this.staffid,
+				designation:this.designation
 				/*
 				name: this.name,
 				regno: this.regno,
@@ -41,10 +56,27 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$stateParams
 
 			// Redirect after save
 			staff.$save(function(response) {
-				$location.path('staffs/' + response._id);
+				debugger;
+				$scope.staffcredentials.firstName = response.name;
+				$scope.staffcredentials.lastName = response.name;
+				$scope.staffcredentials.email = response.mail;
+				$scope.staffcredentials.username = response.name.toLowerCase()+''+response.staffid;
+				$scope.staffcredentials.password = response.name.toLowerCase()+''+response.staffid;
+				$scope.staffcredentials.confirmpassword = $scope.staffcredentials.password;
+				$scope.staffcredentials.roles = ['staff'];
+
+				$http.post('/auth/signup', $scope.staffcredentials).success(function(res) {
+					$location.path('staffs/' + response._id);
+
+					// Clear form fields
+					$scope.name = '';
+				}).error(function(res) {
+					$scope.error = res.message;
+				});
+				//$location.path('staffs/' + response._id);
 
 				// Clear form fields
-				$scope.name = '';
+				//$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});

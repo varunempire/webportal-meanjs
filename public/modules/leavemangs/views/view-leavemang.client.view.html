@@ -19,7 +19,69 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">Leave Type:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.leavetype"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">Reason Type:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.reasontype"></p>
+	                		</div>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">From Date:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.fmdate"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">To Date:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.todate"></p>
+	                		</div>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">Staff:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.staffname"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" for="name">Leave Reason:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="leavemang.leavereason"></p>
+	                		</div>
+                		</div>
+                	</div>
+
 						<h1 data-ng-bind="leavemang.name"></h1>
+						
 					</div>
 					<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == leavemang.user._id))">
 						<a class="btn btn-primary" href="/#!/leavemangs/{{leavemang._id}}/edit">

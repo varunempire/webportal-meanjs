@@ -5,6 +5,32 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 	function($scope, $stateParams, $location, Authentication, Leavemangs) {
 		$scope.authentication = Authentication;
 
+		  $scope.dateTimeNow = function() {
+    			$scope.fmdate = new Date();
+    			$scope.todate = new Date();
+		  };
+		  $scope.dateTimeNow();
+		  
+		  $scope.toggleMinDate = function() {
+		    $scope.minDate = $scope.minDate ? null : new Date();
+		  };
+		   
+		  $scope.maxDate = new Date('2014-06-22');
+		  $scope.toggleMinDate();
+
+		  $scope.dateOptions = {
+		    startingDay: 1,
+		    showWeeks: false
+		  };
+		  
+		  // Disable weekend selection
+		  $scope.disabled = function(calendarDate, mode) {
+		    return mode === 'day' && ( calendarDate.getDay() === 0 || calendarDate.getDay() === 6 );
+		  };
+
+
+		  $scope.showMeridian = true;
+
 		// Create new Leavemang
 		$scope.create = function() {
 			// Create new Leavemang object
@@ -16,8 +42,13 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 				year: this.year,
 				section: this.section,
 				reason: this.reason,
-				from: this.from,
-				to: this.to
+				fmdate: this.fmdate,
+				todate: this.todate,
+				staffname: this.staffname,
+				reasontype: this.reasontype,
+				leavereason: this.leavereason,
+				leavetype: this.leavetype,
+
 			});
 
 			// Redirect after save

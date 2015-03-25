@@ -19,7 +19,7 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 		};
 
 		$scope.radioModel = 'dayscholar';
-		$scope.credentials ={};
+		$scope.stucredentials ={};
 
 		// Create new Addstudent
 		$scope.create = function() {
@@ -54,14 +54,14 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 			// Redirect after save
 			addstudent.$save(function(response) {
 
-				$scope.credentials.firstName = response.name;
-				$scope.credentials.lastName = response.name;
-				$scope.credentials.email = response.mail;
-				$scope.credentials.username = response.year+''+response.dept+''+response.regno;
-				$scope.credentials.password = response.year+''+response.dept+''+response.regno+''+response.year+''+response.dept+''+response.regno;
-				$scope.credentials.confirmpassword = $scope.credentials.password;
+				$scope.stucredentials.firstName = response.name;
+				$scope.stucredentials.lastName = response.name;
+				$scope.stucredentials.email = response.mail;
+				$scope.stucredentials.username = response.year+''+response.dept+''+response.regno;
+				$scope.stucredentials.password = response.year+''+response.dept+''+response.regno;
+				$scope.stucredentials.confirmpassword = $scope.stucredentials.password;
 
-				$http.post('/auth/signup', $scope.credentials).success(function(res) {
+				$http.post('/auth/signup', $scope.stucredentials).success(function(res) {
 					$location.path('addstudents/' + response._id);
 
 					// Clear form fields

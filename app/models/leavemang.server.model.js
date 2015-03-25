@@ -40,17 +40,38 @@ var LeavemangSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	
+	fmdate: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	reason: {
 		type: String,
 		default: '',
 		trim: true
 	},
-	from: {
+	todate: {
 		type: String,
 		default: '',
 		trim: true
 	},
-	to: {
+	leavetype: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	leavereason: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	staffname: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	reasontype: {
 		type: String,
 		default: '',
 		trim: true
