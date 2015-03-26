@@ -20,14 +20,19 @@
         <div class="row">
             <div class="col-md-12">
                  <div class="list-group">
-                    <a data-ng-repeat="addbook in addbooks" data-ng-href="#!/addbooks/{{addbook._id}}" class="list-group-item">
+                    <a data-ng-repeat="addbook in addbooks" data-ng-href="{{addbook.image.filename}}" target="_blank" class="list-group-item">
                         <small class="list-group-item-text">
                             Posted on
                             <span data-ng-bind="addbook.created | date:'medium'"></span>
                             by
                             <span data-ng-bind="addbook.user.displayName"></span>
                         </small>
-                        <h4 class="list-group-item-heading" data-ng-bind="addbook.name"></h4>
+                        <h4 class="list-group-item-heading" data-ng-bind="addbook.image.name"></h4>
+                        <div ng-if="addbook.image.type === 'png'">
+                        	<img ng-src="{{addbook.image.filename}}" width="150px" height="150px"/>
+                        </div>
+                        <div ng-if="addbook.image.type === 'pdf'" width="150px" height="150px">
+                        </div>
                     </a>
                 </div>
                 <div class="alert alert-warning text-center" data-ng-hide="!addbooks.$resolved || addbooks.length">

@@ -95,11 +95,13 @@
                     <div class="controls">
 			            <div class="col-lg-12" style="padding:20px;">
 					      <div class="col-md-6">
-								<div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" data-multiple="true"
+								<!-- <div ng-show="dropSupported" class="drop-box" ng-file-drop="onFileSelect($files);" data-multiple="true"
 										ng-file-drop-available="dropSupported=true" accept="*/*" ng-file-model="myFiles">Glisser au maximum 4 images
 								</div>
 								
-								<div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div>
+								<div ng-show="!dropSupported">HTML5 Drop File is not supported on this browser</div> -->
+								
+								choose a single file: <input type="file" ng-file-select="onFileSelect($files)">
 					      </div>
 					      <div class="col-md-6">
 								<div ng-show="selectedFiles != null">

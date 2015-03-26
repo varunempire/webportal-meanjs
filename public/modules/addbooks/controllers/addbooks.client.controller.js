@@ -1,23 +1,28 @@
 'use strict';
 
 // Addbooks controller
-angular.module('addbooks').controller('AddbooksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Addbooks', '$timeout', '$upload',
-	function($scope, $stateParams, $location, Authentication, Addbooks, $timeout, $upload) {
+angular.module('addbooks').controller('AddbooksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Addbooks', 
+'$http', '$timeout', '$upload',
+	function($scope, $stateParams, $location, Authentication, Addbooks, $http, $timeout, $upload) {
 		$scope.authentication = Authentication;
+		$scope.param={};
+		//image		
+		$scope.uploadRightAway = false; 
 
 		// Create new Addbook
 		$scope.create = function() {
 			
+			//debugger;
 			//image
 			console.log($scope.selectedFiles.length);
-	    	$files = $scope.selectedFiles;
+	    	  //$files = $scope.selectedFiles;
 	        $scope.progress[index] = 0;
 	        console.log('starting...');
-	        console.log($files);
+	        //console.log($files);
 	        $scope.paths = [];
-		    for (var index = 0; index < $files.length; index++) {
-		        console.log('path= '+$files[index].name);
-		        $scope.paths[index] = './uploads/'+$files[index].name; 
+		    for (var index = 0; index < $scope.selectedFiles.length; index++) {
+		        console.log('path= '+$scope.selectedFiles[index].name);
+		        $scope.paths[index] = './uploads/'+$scope.selectedFiles[index].name; 
 		        $scope.upload[index] = $upload.upload({
 		        		method: 'POST',
 		            url: 'upload',
@@ -27,43 +32,39 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 		                    }).then(function (_result) {
 		                console.log('$upload: ' + JSON.stringify(_result));
 		                //file.cancel()
-		            }, function error(err) {
-		                console.log('[$upload] received error: ' + JSON.stringify(err));
-		            });
-		        
-		        }
-		    console.log('hang...');
-	    
+		                $scope._id =  _result.data.doc._id;
+		            
 			// Create new Addbook object
 			var addbook = new Addbooks ({
-				name: this.name,
-				bookno: this.bookno,
-				course: this.course,
-				dept: this.dept,
-				year: this.year,
-				sem: this.sem,
-				avbooks: this.avbooks,
-				edition: this.edition,
-				publisher: this.publisher,
-				author: this.author,
-				download: this.download,
-				//edit: this.edit,
-				image: $scope.paths,
-				code: this.code,
-				sno: this.sno,
-				copy: this.copy,
-				regbook: this.regbook,
-				issue: this.issue,
-				penalty: this.penalty,
-				renewal: this.renewal,
-				mag: this.mag,
-				smag: this.smag,
-				Journals: this.Journals,
-				newspaper: this.newspaper
+				_id: $scope._id,
+				name: $scope.name,
+				bookno: $scope.bookno,
+				course: $scope.course,
+				dept: $scope.dept,
+				year: $scope.year,
+				sem: $scope.sem,
+				avbooks: $scope.avbooks,
+				edition: $scope.edition,
+				publisher: $scope.publisher,
+				author: $scope.author,
+				download: $scope.download,
+				//edit: $scope.edit,
+				//image: $scope.paths,
+				code: $scope.code,
+				sno: $scope.sno,
+				copy: $scope.copy,
+				regbook: $scope.regbook,
+				issue: $scope.issue,
+				penalty: $scope.penalty,
+				renewal: $scope.renewal,
+				mag: $scope.mag,
+				smag: $scope.smag,
+				Journals: $scope.Journals,
+				newspaper: $scope.newspaper
 			});
 
 			// Redirect after save
-			addbook.$save(function(response) {
+			addbook.$update(function(response) {
 				$location.path('addbooks/' + response._id);
 
 				// Clear form fields
@@ -71,6 +72,12 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+		                    }, function error(err) {
+				                console.log('[$upload] received error: ' + JSON.stringify(err));
+				            });
+				        
+				        }
+				    console.log('hang...');
 		};
 
 		// Remove existing Addbook

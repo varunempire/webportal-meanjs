@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var fs = require('fs'),
+    multer  = require('multer'),
 	http = require('http'),
 	https = require('https'),
 	express = require('express'),
@@ -80,7 +81,16 @@ module.exports = function(db) {
 		extended: true
 	}));
 	app.use(bodyParser.json());
+	app.use(multer({
+    dest: './public/uploads',
+    rename: function (fieldname, filename) {
+     return filename;
+    }
+	}));
 	app.use(methodOverride());
+
+	// Enable jsonp
+	app.enable('jsonp callback');
 
 	// CookieParser should be above session
 	app.use(cookieParser());

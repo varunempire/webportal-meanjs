@@ -125,19 +125,42 @@ exports.upload = function (req, res) {
 
     fs.rename(oldPath, oldPath, function (err) {
         if (err === null) {
-            var image = {
+            var book = {
                 /*title: req.body.title || "???",
                 author: req.body.author || "???",
                 description: req.body.description || "???",*/
+				name: 'fgf',
+				bookno: 'fg',
+				course: 'fg',
+				dept: 'fg',
+				year: 'fgf',
+				sem: 'fg',
+				avbooks: 'fg',
+				edition: 'fg',
+				publisher: 'g',
+				author: 'g',
+				download: 'g',
+				code: 'g',
+				sno: 'g',
+				copy: 'g',
+				regbook: 'g',
+				issue: 'g',
+				penalty: 'g',
+				renewal: 'g',
+				mag: 'g',
+				smag: 'g',
+				Journals: 'g',
+				newspaper: 'g',
                 image: {
                     modificationDate: req.files.myFile.modifiedDate || new Date(),
                     name: req.files.myFile.name || "???",
                     size: req.files.myFile.size || 0,
-                    type: req.files.myFile.type || "???",
+                    type: req.files.myFile.extension || "???",
                     filename: newPath
-                }
+                },
+                user: req.user
             };
-            var addbook = new Addbook(image);
+            var addbook = new Addbook(book);
 
             console.log('Renaming file to ', req.files.myFile.name);
 
@@ -152,4 +175,4 @@ exports.upload = function (req, res) {
             });
         }
     });
-};
+}
