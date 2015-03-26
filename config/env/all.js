@@ -30,12 +30,17 @@ module.exports = {
 			]
 		},
 		css: [
-			'public/modules/**/css/*.css'
+			'public/modules/**/css/*.css',
+			'public/vendor/ui-grid-unstable.css'
 		],
 		js: [
 			'public/config.js',
 			'public/application.js',
 			'public/vendor/datetimepicker.js',
+			'public/vendor/csv.js',
+			'public/vendor/pdfmake.js',
+			'public/vendor/vfs_fonts.js',	
+			'public/vendor/ui-grid-unstable.js',
 			'public/modules/*/*.js',
 			'public/modules/*/*[!tests]*/*.js'
 		],

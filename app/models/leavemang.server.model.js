@@ -71,6 +71,11 @@ var LeavemangSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	status: {
+		type: String,
+		default: '',
+		trim: true
+	},
 	reasontype: {
 		type: String,
 		default: '',
