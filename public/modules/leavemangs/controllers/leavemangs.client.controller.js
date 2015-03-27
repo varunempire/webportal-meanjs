@@ -58,7 +58,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
         };
 
 		  $scope.gridOptions.columnDefs = [
-		    { name:'_id', width:150 , displayName: 'Status Update', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
+		    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Status Update', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
 		    { name:'leavetype', displayName: 'Leave Type', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
 		    { name:'reasontype', width:150, displayName: 'Reason Type' },
 		    { name:'staffname', width:150, displayName: 'Staff Name', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
