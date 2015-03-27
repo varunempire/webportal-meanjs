@@ -246,7 +246,7 @@ div.front, div.back {
   left: 0;
   height: 350px;
   width: 320px;
-  box-shadow: 0 0 50px rgba(226, 224, 222, 0.71);
+  box-shadow: 0 0 5px rgba(237, 238, 245, 0.72);
 }
 
 div.front {
@@ -264,13 +264,13 @@ div.front:before, div.front:after {
   border-color: transparent;
 }
 div.front:before {
-  border-top-color: #F58813;
-  border-left-color: #F89117;
+  border-top-color: #EDEEF5;
+  border-left-color: #D7D6D4;
   z-index: 2;
 }
 div.front:after {
-  border-top-color: #F89117;
-  border-right-color: #F58813;
+  border-top-color: #EDEEF5;
+  border-right-color: #EDEEF5;
 }
 div.front div.name {
   position: absolute;
