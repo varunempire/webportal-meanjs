@@ -20,6 +20,7 @@
          <div class="row">
             <form class="form-horizontal" data-ng-submit="create()" novalidate>
                 <fieldset>
+            
                     <div class="col-md-6">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -58,6 +59,16 @@
                                     <input type="text" data-ng-model="staffname" id="staffname" class="form-control" placeholder="Staff Name" required>
                                 </div>
                             </div>
+                            
+                            <div class="form-group">
+								<label>Staff List</label>
+								<div class="input-group input-group-md">
+									<span class="input-group-addon">
+										<i class="text-muted glyphicon glyphicon-asterisk"></i>
+									</span>
+									<input type="text" class="form-control" ng-model="selectedProduct" ng-options="product for product in products" required placeholder="Enter product name" bs-typeahead>
+								</div>
+							</div> 
 
                         </div>
                     </div>

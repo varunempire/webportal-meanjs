@@ -5,6 +5,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 	function($scope, $stateParams, $location, Authentication, Leavemangs) {
 		$scope.authentication = Authentication;
 
+		  $scope.products = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
 		  $scope.gridOptions = {};
 		  $scope.gridOptions.data = 'myData';
@@ -57,14 +58,14 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
         };
 
 		  $scope.gridOptions.columnDefs = [
-		    { name:'_id', width:150 , visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
-		    { name:'reasontype', width:150 },
-		    { name:'staffname', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
-		    { name:'leavereason', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		    { name:'leavetype', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		    { name:'status', width:150 },
-		    { name:'fmdate', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		    { name:'todate', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  }
+		    { name:'_id', width:150 , displayName: 'Status Update', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
+		    { name:'leavetype', displayName: 'Leave Type', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'reasontype', width:150, displayName: 'Reason Type' },
+		    { name:'staffname', width:150, displayName: 'Staff Name', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
+		    { name:'leavereason', width:150, displayName: 'Leave Reason',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
+		    { name:'status', width:150, displayName: 'Status' },
+		    { name:'fmdate', width:200, enableCellEdit: true, displayName: 'From Date', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'todate', width:200, enableCellEdit: true, displayName: 'To Date', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  }
 		     ];
 		     
 		 // $scope.columns[0].visible;
