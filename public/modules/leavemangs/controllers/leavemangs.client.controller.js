@@ -22,29 +22,51 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		  };
 		 
 		  $scope.status = 'pending';
-		  $scope.approved = function(){
-		  		$scope.status = 'approved';
-              alert($scope.status);
+		  $scope.approved = function(val){			  	
+			  
+			  $scope.leavemang = Leavemangs.get({ 
+					leavemangId: val
+				}).$promise.then(function(response){
+					console.log(response.status+'---'+angular.toJson(response));	
+					response.status = 'approved';
+				  	var leavemang = response;
+				  	leavemang.$update(function() {
+				  		$scope.refreshData();
+				  		//$location.path('leavemangs');
+					}, function(errorResponse) {
+						$scope.error = errorResponse.data.message;
+					});
+				});
+		  	
         };
 
-        $scope.cancel = function(){
-		  		$scope.status = 'cancel';
-              alert($scope.status);
+        $scope.cancel = function(val){
+        	 $scope.leavemang = Leavemangs.get({ 
+					leavemangId: val
+				}).$promise.then(function(response){
+					console.log(response.status+'---'+angular.toJson(response));	
+					response.status = 'canceled';
+				  	var leavemang = response;
+				  	leavemang.$update(function() {
+				  		$scope.refreshData();
+				  		//$location.path('leavemangs');
+					}, function(errorResponse) {
+						$scope.error = errorResponse.data.message;
+					});
+				});
         };
 
 		  $scope.gridOptions.columnDefs = [
-		    { name:'_id', width:150 , visible:false},
+		    { name:'_id', width:150 , visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
 		    { name:'reasontype', width:150 },
 		    { name:'staffname', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
 		    { name:'leavereason', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
 		    { name:'leavetype', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		   /* { name:'reason', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },*/
+		    { name:'status', width:150 },
 		    { name:'fmdate', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		    { name:'todate', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		     { name: 'Approve', enableFiltering :false,
-           cellTemplate:'<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved()"><span class="h4-circle-active"><i class="glyphicon glyphicon-ok"></i></span></button> <button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel()"><span class="h4-circle-active"><i class="glyphicon glyphicon-remove"></i></span></button>' }
+		    { name:'todate', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  }
 		     ];
-		     debugger;
+		     
 		 // $scope.columns[0].visible;
 		  $scope.callsPending = 0;
 		 
@@ -150,6 +172,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 
 		// Find existing Leavemang
 		$scope.findOne = function() {
+			debugger;
 			$scope.leavemang = Leavemangs.get({ 
 				leavemangId: $stateParams.leavemangId
 			});
