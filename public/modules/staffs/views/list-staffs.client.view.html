@@ -20,7 +20,9 @@
         <div class="row">
             <div class="col-md-12">
                  <div class="list-group">
-                    <a data-ng-repeat="staff in staffs" data-ng-href="#!/staffs/{{staff._id}}" class="list-group-item">
+                 <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns class="grid"></div> 
+                
+                    <!-- <a data-ng-repeat="staff in staffs" data-ng-href="#!/staffs/{{staff._id}}" class="list-group-item">
                         <small class="list-group-item-text">
                             Posted on
                             <span data-ng-bind="staff.created | date:'medium'"></span>
@@ -28,7 +30,7 @@
                             <span data-ng-bind="staff.user.displayName"></span>
                         </small>
                         <h4 class="list-group-item-heading" data-ng-bind="staff.name"></h4>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="alert alert-warning text-center" data-ng-hide="!staffs.$resolved || staffs.length">
                     No Staffs yet, why don't you <a href="/#!/staffs/create">create one</a>?

@@ -127,7 +127,7 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 
 		// Find a list of Addbooks
 		$scope.find = function() {
-			$scope.addbooks = Addbooks.query();
+			$scope.addbooks = Addbooks.query();			  
 		};
 
 		// Find existing Addbook

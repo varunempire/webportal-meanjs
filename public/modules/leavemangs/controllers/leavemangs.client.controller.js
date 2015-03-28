@@ -173,7 +173,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 
 		// Find existing Leavemang
 		$scope.findOne = function() {
-			debugger;
+			
 			$scope.leavemang = Leavemangs.get({ 
 				leavemangId: $stateParams.leavemangId
 			});

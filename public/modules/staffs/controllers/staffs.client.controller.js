@@ -16,6 +16,50 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 			$scope.opened = true;
 
 		};
+		
+		//Grid
+		  $scope.gridOptions = {};
+		  $scope.gridOptions.data = 'myData';
+		  $scope.gridOptions.enableColumnResizing = true;
+		  $scope.gridOptions.enableFiltering = true;
+		  $scope.gridOptions.enableGridMenu = true;
+		  $scope.gridOptions.showGridFooter = true;
+		  $scope.gridOptions.showColumnFooter = true;
+		  $scope.myData = Staffs.query();
+		  $scope.gridOptions.rowIdentity = function(row) {
+		    return row.id;
+		  };
+		  $scope.gridOptions.getRowIdentity = function(row) {
+		    return row.id;
+		  };
+		 
+		  $scope.status = 'pending';
+		  $scope.approved = function(val){			  	
+			  $location.path('staffs/'+val);		  	
+	      };
+
+
+		  $scope.gridOptions.columnDefs = [
+		    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Information', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-info btn-xs" style="margin-left:20px;" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">View	Profile <i class="glyphicon glyphicon-user"></i></span></button>' },
+		    { name:'name', displayName: 'Name', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },	    
+		    { name:'dept', width:150, displayName: 'Department', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
+		    { name:'staffid', width:150, displayName: 'Staff Id',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
+		    { name:'mail', width:150, displayName: 'Mail Id' },
+		    { name:'mob', width:200, enableCellEdit: true, displayName: 'Mobile No', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'experience', width:150, displayName: 'Experience' },
+		    { name:'designation', width:150, displayName: 'Designation' },
+		    { name:'qualification', width:200, enableCellEdit: true, displayName: 'Qualification', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'gender', width:150, displayName: 'Gender' }
+		     ];
+		     
+		 // $scope.columns[0].visible;
+		  $scope.callsPending = 0;
+		 
+		  var i = 0;
+		  $scope.refreshData = function(){
+		    $scope.myData = Leavemangs.query();
+		  };
+		
 		$scope.staffcredentials ={};
 
 		// Create new Staff

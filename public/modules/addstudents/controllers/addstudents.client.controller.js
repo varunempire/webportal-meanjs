@@ -5,12 +5,11 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 	function($scope, $http, $stateParams, $location, Authentication, Addstudents) {
 		$scope.authentication = Authentication;
 
+		$scope.onlyNumbers = /^\d+$/;
 		
 		$scope.clear = function () {
 			$scope.dateofbirth = null;
 		};
-
-
 		$scope.open = function($event) {
 			$event.preventDefault();
 			$event.stopPropagation();
@@ -18,6 +17,49 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 			$scope.opened = true;
 		};
 
+		//Grid
+	  $scope.gridOptions = {};
+	  $scope.gridOptions.data = 'myData';
+	  $scope.gridOptions.enableColumnResizing = true;
+	  $scope.gridOptions.enableFiltering = true;
+	  $scope.gridOptions.enableGridMenu = true;
+	  $scope.gridOptions.showGridFooter = true;
+	  $scope.gridOptions.showColumnFooter = true;
+	  $scope.myData = Addstudents.query();
+	  $scope.gridOptions.rowIdentity = function(row) {
+	    return row.id;
+	  };
+	  $scope.gridOptions.getRowIdentity = function(row) {
+	    return row.id;
+	  };
+	 
+	  $scope.status = 'pending';
+	  $scope.approved = function(val){			  	
+		  $location.path('addstudents/'+val);		  	
+      };
+
+
+	  $scope.gridOptions.columnDefs = [
+	    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Information', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-info btn-xs" style="margin-left:20px;" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">View	Profile <i class="glyphicon glyphicon-user"></i></span></button>' },
+	    { name:'name', displayName: 'Name', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },	    
+	    { name:'rollno', width:150, displayName: 'Roll No..', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
+	    { name:'regno', width:150, displayName: 'Register No',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
+	    { name:'course', width:150, displayName: 'Course' },
+	    { name:'dept', width:200, enableCellEdit: true, displayName: 'Department', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+	    { name:'year', width:150, displayName: 'Year' },
+	    { name:'section', width:150, displayName: 'Section' },
+	    { name:'mail', width:200, enableCellEdit: true, displayName: 'Mail ID', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+	    { name:'mobile', width:150, displayName: 'Mobile' }
+	     ];
+	     
+	 // $scope.columns[0].visible;
+	  $scope.callsPending = 0;
+	 
+	  var i = 0;
+	  $scope.refreshData = function(){
+	    $scope.myData = Leavemangs.query();
+	  };
+		  
 		$scope.radioModel = 'dayscholar';
 		$scope.stucredentials ={};
 
@@ -60,7 +102,8 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 				$scope.stucredentials.username = response.year+''+response.dept+''+response.regno;
 				$scope.stucredentials.password = response.year+''+response.dept+''+response.regno;
 				$scope.stucredentials.confirmpassword = $scope.stucredentials.password;
-
+				
+				console.log($scope.stucredentials.username+'---'+$scope.stucredentials.password);				
 				$http.post('/auth/signup', $scope.stucredentials).success(function(res) {
 					$location.path('addstudents/' + response._id);
 

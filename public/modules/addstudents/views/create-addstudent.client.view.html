@@ -47,15 +47,16 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Roll No</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="rollno" id="name" class="form-control" 
+                        <input type="number" ng-pattern="onlyNumbers" data-ng-model="rollno" id="name" class="form-control" 
                         placeholder="Roll No" required>
+                       
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label" for="name">Register No</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="regno" id="name" class="form-control" 
+                        <input type="number" data-ng-model="regno" id="name" class="form-control" 
                         placeholder="Register No" required>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
     			<div class="form-group">
                     <label class="control-label" for="name">Year</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="year" id="name" class="form-control" 
+                        <input type="number" data-ng-model="year" id="name" class="form-control" 
                         placeholder="Year " required>
                     </div>
                 </div>
@@ -105,15 +106,11 @@
             </div>
             <div class="col-md-6">
                 <div class="col-md-10">
-                    
-                
-            
-
                 
                 <div class="form-group">
                     <label class="control-label" for="name">Mobile No</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="mobile" id="name" class="form-control" 
+                        <input type="number" data-ng-model="mobile" id="name" class="form-control" 
                         placeholder="Mobile No " required>
                     </div>
                 </div>
@@ -129,8 +126,9 @@
                 	<div class="form-group">
                         <label class="control-label" for="name">Permanent Address</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="permanentaddress" id="name" class="form-control" 
+                            <textarea type="text" data-ng-model="permanentaddress" row="3" id="name" class="form-control" 
                             placeholder="Permanent Address" required>
+                            </textarea>
                         </div>
                     </div>
 
@@ -151,9 +149,9 @@
                     </div>
                 
                  <div class="form-group">
-                        <label class="control-label" for="name">Mobile Number</label>
+                        <label class="control-label" for="name">Father's Mobile Number</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="fmobno" id="name" class="form-control" 
+                            <input type="number" data-ng-model="fmobno" id="name" class="form-control" 
                             placeholder="Mobile Number" required>
                         </div>
                     </div>
@@ -175,9 +173,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="name">Mobile Number</label>
+                        <label class="control-label" for="name">Mother's Mobile Number</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="mmobno" id="name" class="form-control" 
+                            <input type="number" data-ng-model="mmobno" id="name" class="form-control" 
                             placeholder="Mobile Number" required>
                         </div>
                     </div>
@@ -209,8 +207,9 @@
                     <div class="form-group">
                         <label class="control-label" for="name">Present Address</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="presentaddress" id="name" class="form-control" 
+                             <textarea type="text" row="3" data-ng-model="presentaddress" id="name" class="form-control" 
                             placeholder="Present Address" required>
+                            </textarea>
                         </div>
                     </div>
 
@@ -235,17 +234,26 @@
                     <div class="form-group">
                         <label class="control-label" for="name">Local Guardian Address</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="localgaddress" id="name" class="form-control" 
+                            <textarea type="text" row="3" data-ng-model="localgaddress" id="name" class="form-control" 
                             placeholder="Local Guardian Address" required>
+                            </textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="name">Date of Joining</label>
-                        <div class="controls">
+                        
+                        <p class="input-group">
+                          <input type="text" class="form-control" placeholder="dd-MMMM-yyyy" data-ng-model="doj" datepicker-popup="dd-MMMM-yyyy" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>
+                        </p>
+                        
+                       <!--  <div class="controls">
                             <input type="text" data-ng-model="doj" id="name" class="form-control" 
                             placeholder="Date of Joining" required>
-                        </div>
+                        </div> -->
                     </div>
 
                     
