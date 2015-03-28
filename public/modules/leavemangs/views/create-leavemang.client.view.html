@@ -56,20 +56,10 @@
                             <div class="form-group">
                                 <label class="control-label" for="name">Staff ( username )</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="staffname" id="staffname" class="form-control" placeholder="Staff Name" required>
+                                    <input type="text" class="form-control" ng-model="staffusername" ng-options="staffitem for staffitem in staffitems" required placeholder="Enter staff name" bs-typeahead>
                                 </div>
                             </div>
                             
-                            <div class="form-group">
-								<label>Staff List</label>
-								<div class="input-group input-group-md">
-									<span class="input-group-addon">
-										<i class="text-muted glyphicon glyphicon-asterisk"></i>
-									</span>
-									<input type="text" class="form-control" ng-model="selectedProduct" ng-options="product for product in products" required placeholder="Enter product name" bs-typeahead>
-								</div>
-							</div> 
-
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -181,7 +171,7 @@
                         </div> -->
 
                         <div class="form-group">
-                            <input type="submit" value="submit" class="btn btn-default">
+                            <input type="submit" value="submit" class="btn btn-primary btn-show">
                         </div>
                         <div data-ng-show="error" class="text-danger">
                             <strong data-ng-bind="error"></strong>

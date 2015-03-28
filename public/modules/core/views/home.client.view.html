@@ -1,8 +1,8 @@
 <section data-ng-controller="HomeController" >
 
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
-	
-	<div class="row" data-ng-show="authentication.user" >
+	<!-- {{authentication.user.role}} -->
+	<div class="row" ng-if="authentication.user.role === 'admin'" >
 		<div class="col-md-6">
 			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
 			  <div class="flipper">
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" style="margin-top:390px" data-ng-show="authentication.user">
+	<div class="row" style="margin-top:390px" ng-if="authentication.user.role === 'admin'">
 		<div class="col-md-6">
 			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
 			  <div class="flipper">
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" style="margin-top:400px" data-ng-show="authentication.user">
+	<div class="row" style="margin-top:400px" ng-if="authentication.user.role === 'admin'">
 		<div class="col-md-6">
 			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
 			  <div class="flipper">
@@ -101,6 +101,144 @@
 			
 		</div>
 	</div>
+	
+	<div class="row" ng-if="authentication.user.role === 'student'" >
+		<div class="col-md-6">
+			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+			  <div class="flipper">
+					<div class="front">
+						<div class="name">
+							<img src="modules/core/img/books1.jpg" style="margin-left:-40px"/>
+					      	<span class="first">Library</span> 
+					    </div>
+					</div>
+			    <div class="back">
+					<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+
+					</p>
+					<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/addbooks	" style="color:#333"><i class="glyphicon glyphicon-globe"></i> Search Books</a></h2>			    	
+			    </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+			  <div class="flipper">
+					<div class="front">
+						<div class="name">
+							<img src="modules/core/img/students.png" style="margin-left:-40px"/>
+					      	<span class="first">Profile</span> 
+					    </div>
+					</div>
+			    <div class="back">
+					<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+
+					</p>
+					<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/addstudents" style="color:#333"><i class="glyphicon glyphicon-globe"></i> View Profile</a></h2>			    	
+			    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row" style="margin-top:390px" ng-if="authentication.user.role === 'student'">
+		<div class="col-md-6">
+			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+			  <div class="flipper">
+					<div class="front">
+						<div class="name">
+							<img src="modules/core/img/leave.png" style="margin-left:-40px"/>
+					      	<span class="first">Leave</span> 
+					    </div>
+					</div>
+			    <div class="back">
+					<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+
+					</p>
+					<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/leavemangs/create" style="color:#333"><i class="glyphicon glyphicon-globe"></i> New Leave</a></h2>			    	
+			    </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+			  <div class="flipper">
+					<div class="front">
+						<div class="name">
+							<img src="modules/core/img/placements.png" style="margin-left:-40px"/>
+					      	<span class="first">Placements</span> 
+					    </div>
+					</div>
+			    <div class="back">
+					<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+
+					</p>
+					<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/placements/create" style="color:#333"><i class="glyphicon glyphicon-globe"></i> Add Placement</a></h2>			    	
+			    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" ng-if="authentication.user.role === 'staff'" >
+			<div class="col-md-6">
+				<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+				  <div class="flipper">
+						<div class="front">
+							<div class="name">
+								<img src="modules/core/img/books1.jpg" style="margin-left:-40px"/>
+						      	<span class="first">Library</span> 
+						    </div>
+						</div>
+				    <div class="back">
+						<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+	
+						</p>
+						<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/addbooks	" style="color:#333"><i class="glyphicon glyphicon-globe"></i> Search Books</a></h2>			    	
+				    </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+				  <div class="flipper">
+						<div class="front">
+							<div class="name">
+								<img src="modules/core/img/leave.png" style="margin-left:-40px"/>
+						      	<span class="first">Leave</span> 
+						    </div>
+						</div>
+				    <div class="back">
+						<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+	
+						</p>
+						<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/leavemangs" style="color:#333"><i class="glyphicon glyphicon-globe"></i> List leave items</a></h2>			    	
+				    </div>
+					</div>
+				</div>
+		</div>
+		</div>
+	<div class="row" style="margin-top:400px" ng-if="authentication.user.role === 'staff'">
+		<div class="col-md-6">
+			<div class="business-card" ontouchstart="this.classList.toggle('hover');">
+			  <div class="flipper">
+					<div class="front">
+						<div class="name">
+							<img src="modules/core/img/techer.png" style="margin-left:-40px"/>
+					      	<span class="first">Staffs</span> 
+					    </div>
+					</div>
+			    <div class="back">
+					<p style="padding:20px;color:#333">The very name Jeppiaar has grown to be synonymous with excellence in education and the Jeppiaar Educational Trust was formed in 1987, with the sole purpose of providing cutting edge technical education that is both accessible and affordable by establishing premier colleges of Engineering and Management studies.
+
+					</p>
+					<h2 style="margin-top:-20px;margin-left:30px;color:#333"><a href="/#!/staffs" style="color:#333"><i class="glyphicon glyphicon-globe"></i>View Profile</a></h2>			    	
+			    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 <br/><br/><br/><br/>
 
 	

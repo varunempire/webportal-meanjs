@@ -1,12 +1,11 @@
 'use strict';
 
 // Leavemangs controller
-angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Leavemangs',
-	function($scope, $stateParams, $location, Authentication, Leavemangs) {
+angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Staffs', 'Leavemangs',
+	function($scope, $stateParams, $location, Authentication, Staffs, Leavemangs) {
 		$scope.authentication = Authentication;
 
-		  $scope.products = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-
+		  
 		  $scope.gridOptions = {};
 		  $scope.gridOptions.data = 'myData';
 		  $scope.gridOptions.enableColumnResizing = true;
@@ -22,18 +21,19 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		    return row.id;
 		  };
 		 
+		  Staffs.query().$promise.then(function(response){				
+			$scope.staffitems = _.uniq(_.pluck(response, 'username'))
+		  });
+		  
 		  $scope.status = 'pending';
 		  $scope.approved = function(val){			  	
-			  
 			  $scope.leavemang = Leavemangs.get({ 
 					leavemangId: val
 				}).$promise.then(function(response){
-					console.log(response.status+'---'+angular.toJson(response));	
 					response.status = 'approved';
 				  	var leavemang = response;
 				  	leavemang.$update(function() {
 				  		$scope.refreshData();
-				  		//$location.path('leavemangs');
 					}, function(errorResponse) {
 						$scope.error = errorResponse.data.message;
 					});
@@ -61,7 +61,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Status Update', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-success btn-xs" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">Approve	<i class="glyphicon glyphicon-ok"></i></span></button><button class="btn btn-danger btn-xs" ng-click="grid.appScope.cancel(COL_FIELD)"><span class="h4-circle-active">Cancel <i class="glyphicon glyphicon-remove"></i></span></button>' },
 		    { name:'leavetype', displayName: 'Leave Type', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
 		    { name:'reasontype', width:150, displayName: 'Reason Type' },
-		    { name:'staffname', width:150, displayName: 'Staff Name', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
+		    { name:'staffusername', width:150, displayName: 'Staff Name', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
 		    { name:'leavereason', width:150, displayName: 'Leave Reason',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
 		    { name:'status', width:150, displayName: 'Status' },
 		    { name:'fmdate', width:200, enableCellEdit: true, displayName: 'From Date', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
@@ -76,7 +76,13 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		    $scope.myData = Leavemangs.query();
 		  };
 
-
+		  if($scope.authentication.user.role === 'student'){
+			  Leavemangs.query().$promise.then(function(response){
+				  $scope.myData = _.where(response, { 'studentusername': $scope.authentication.user.username});
+			  });
+			}else{
+				$scope.myData = Leavemangs.query();
+			}
 		  
 		  $scope.dateTimeNow = function() {
     			$scope.fmdate = new Date();
@@ -97,9 +103,9 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		  };
 		  
 		  // Disable weekend selection
-		  $scope.disabled = function(calendarDate, mode) {
+		 /* $scope.disabled = function(calendarDate, mode) {
 		    return mode === 'day' && ( calendarDate.getDay() === 0 || calendarDate.getDay() === 6 );
-		  };
+		  };*/
 
 
 		  $scope.showMeridian = true;
@@ -107,6 +113,7 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 		// Create new Leavemang
 		$scope.create = function() {
 			// Create new Leavemang object
+			
 			var leavemang = new Leavemangs ({
 				name: this.name,
 				rollno: this.rollno,
@@ -121,10 +128,12 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 				reasontype: this.reasontype,
 				leavereason: this.leavereason,
 				leavetype: this.leavetype,
-				status: this.status
+				status: this.status,
+				staffusername: this.staffusername,
+				studentusername: $scope.authentication.user.username
 
 			});
-
+			
 			// Redirect after save
 			leavemang.$save(function(response) {
 				$location.path('leavemangs/' + response._id);

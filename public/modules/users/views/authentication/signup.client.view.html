@@ -77,6 +77,14 @@
 						<input type="password" id="password" name="confirmpassword" class="form-control" data-ng-model="credentials.confirmpassword" placeholder="Password">
 					</div>
 				</div>
+				<div class="form-group">
+					
+					<div class="input-group input-group-md">	
+					<label for="confirmpassword">Default Role</label>: <span > Admin</span>	<p ng-model="credentials.role" ng-init="credentials.role='admin'" ></p>					
+						
+						
+					</div>
+				</div>
 				<div class="text-center form-group">
 					<button type="submit" class="btn btn-large btn-primary btn-block btn-show">Sign Up</button>&nbsp;<b> Or</b>&nbsp;</br>
 					<a href="/#!/signin" class="btn btn-large btn-primary btn-block btn-show">Log In</a>

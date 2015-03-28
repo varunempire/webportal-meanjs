@@ -75,6 +75,10 @@ var UserSchema = new Schema({
 		}],
 		default: ['user']
 	},
+	role:{
+		type: String,
+		default: ''
+	},
 	updated: {
 		type: Date
 	},

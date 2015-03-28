@@ -81,6 +81,14 @@ var LeavemangSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	staffusername: {
+		type: String,
+		default: ''
+	},
+	studentusername: {
+		type: String,
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

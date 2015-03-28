@@ -16,6 +16,10 @@ var StaffSchema = new Schema({
 		required: 'Please fill Staff name',
 		trim: true
 	},
+	lname: {
+		type: String,
+		default: ''
+	},
 	dept: {
 		type: String,
 		default: '',
@@ -98,6 +102,14 @@ var StaffSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true
+	},
+	username: {
+		type: String,
+		default: '',
+	},
+	role: {
+		type: String,
+		default: '',
 	},
 	/*
 	name: {

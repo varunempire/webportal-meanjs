@@ -22,7 +22,7 @@
                   <div class="list-group">
                       <div id="grid1" ui-grid="gridOptions" ui-grid-cellNav ui-grid-edit ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-move-columns class="grid"></div> 
                   
-                    <a ng-show="true" data-ng-repeat="leavemang in leavemangs" data-ng-href="#!/leavemangs/{{leavemang._id}}" class="list-group-item">
+                   <!--  <a ng-show="true" data-ng-repeat="leavemang in leavemangs" data-ng-href="#!/leavemangs/{{leavemang._id}}" class="list-group-item">
                        <small class="list-group-item-text">
                           Posted on
                           <span data-ng-bind="leavemang.created | date:'medium'"></span>
@@ -30,7 +30,7 @@
                           <span data-ng-bind="leavemang.user.displayName"></span>
                       </small>
                       <h4 class="list-group-item-heading" data-ng-bind="leavemang.name"></h4>
-                    </a>
+                    </a> -->
                 </div>
                 <div class="alert alert-warning text-center" data-ng-hide="!leavemangs.$resolved || leavemangs.length">
                     No Leavemangs yet, why don't you <a href="/#!/leavemangs/create">create one</a>?

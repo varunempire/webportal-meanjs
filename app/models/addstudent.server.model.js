@@ -16,6 +16,10 @@ var AddstudentSchema = new Schema({
 		required: 'Please fill Addstudent name',
 		trim: true
 	},
+	lname: {
+		type: String,
+		default: ''
+	},
 	dateofbirth: {
 		type: String,
 		default: '',
@@ -125,6 +129,14 @@ var AddstudentSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true
+	},
+	username: {
+		type: String,
+		default: '',
+	},
+	role: {
+		type: String,
+		default: '',
 	},
 	created: {
 		type: Date,

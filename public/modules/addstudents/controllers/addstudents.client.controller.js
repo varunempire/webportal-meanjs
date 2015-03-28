@@ -25,13 +25,23 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 	  $scope.gridOptions.enableGridMenu = true;
 	  $scope.gridOptions.showGridFooter = true;
 	  $scope.gridOptions.showColumnFooter = true;
-	  $scope.myData = Addstudents.query();
+	  
+	  if($scope.authentication.user.role === 'student'){
+		  Addstudents.query().$promise.then(function(response){
+			  $scope.myData = _.where(response, { 'username': $scope.authentication.user.username});
+		  });
+		}else{
+			$scope.myData = Addstudents.query();
+		}
+	  
 	  $scope.gridOptions.rowIdentity = function(row) {
 	    return row.id;
 	  };
 	  $scope.gridOptions.getRowIdentity = function(row) {
 	    return row.id;
 	  };
+	  
+	  
 	 
 	  $scope.status = 'pending';
 	  $scope.approved = function(val){			  	
@@ -41,6 +51,7 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 
 	  $scope.gridOptions.columnDefs = [
 	    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Information', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-info btn-xs" style="margin-left:20px;" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">View	Profile <i class="glyphicon glyphicon-user"></i></span></button>' },
+	    { name:'username', enableSorting: false,  enableFiltering :false, enableColumnMenu: false, width:150, displayName: 'User Name' },
 	    { name:'name', displayName: 'Name', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },	    
 	    { name:'rollno', width:150, displayName: 'Roll No..', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
 	    { name:'regno', width:150, displayName: 'Register No',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
@@ -68,6 +79,7 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 			// Create new Addstudent object
 			var addstudent = new Addstudents ({
 				name: this.name,
+				lname: this.lname,
 				dateofbirth: this.dateofbirth,
 				rollno: this.rollno,
 				regno: this.regno,
@@ -89,7 +101,9 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 				mmobno: this.mmobno,
 				roomno: this.roomno,
 				localgaddress: this.localgaddress,
-				doj: this.doj
+				doj: this.doj,
+				username: this.name.toLowerCase()+''+this.rollno,
+				role: 'student'
 
 			});
 
@@ -99,11 +113,11 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 				$scope.stucredentials.firstName = response.name;
 				$scope.stucredentials.lastName = response.name;
 				$scope.stucredentials.email = response.mail;
-				$scope.stucredentials.username = response.year+''+response.dept+''+response.regno;
-				$scope.stucredentials.password = response.year+''+response.dept+''+response.regno;
+				$scope.stucredentials.username = response.username;
+				$scope.stucredentials.password = response.username;
 				$scope.stucredentials.confirmpassword = $scope.stucredentials.password;
+				$scope.stucredentials.role = response.role;
 				
-				console.log($scope.stucredentials.username+'---'+$scope.stucredentials.password);				
 				$http.post('/auth/signup', $scope.stucredentials).success(function(res) {
 					$location.path('addstudents/' + response._id);
 

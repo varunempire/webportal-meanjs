@@ -23,12 +23,17 @@
                 <div class="col-md-10">
 
                     <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="name">First Name</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="First Name" required>
                     </div>
                     </div>
-
+ 					<div class="form-group">
+	                    <label class="control-label" for="name">Last Name</label>
+	                    <div class="controls">
+	                        <input type="text" data-ng-model="lname" id="lname" class="form-control" placeholder="Last Name" required>
+	                    </div>
+                    </div>
                     <div class="form-group">
                     <label class="control-label" for="name">Department</label>
                     <div class="controls">
@@ -60,7 +65,8 @@
                     <div class="form-group">
                     <label class="control-label" for="name">Permanent Address</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="peradd" id="name" class="form-control" placeholder="Permanent Address" required>
+                        <textarea type="text" data-ng-model="peradd" row="3" id="name" class="form-control" placeholder="Permanent Address" required>
+                        </textarea>
                     </div>
                     </div>
 
@@ -252,7 +258,7 @@
 
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <input type="submit" class="btn btn-primary btn-show">
                 </div>
                 <div data-ng-show="error" class="text-danger">
                     <strong data-ng-bind="error"></strong>

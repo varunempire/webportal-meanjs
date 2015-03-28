@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <label class="control-label" for="name">Staff ( username )</label>
                                 <div class="controls">
-                                    <input type="text" data-ng-model="leavemang.staffname" id="staffname" class="form-control" placeholder="Staff Name" required>
+                                	<input type="text" class="form-control" data-ng-model="leavemang.staffusername" ng-options="staffitem for staffitem in staffitems" required placeholder="Enter staff name" bs-typeahead>
                                 </div>
                             </div>
                             

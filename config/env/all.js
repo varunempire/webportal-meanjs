@@ -28,6 +28,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/lodash/dist/lodash.compat.js',
 				'public/vendor/ng-flow/dist/ng-flow-standalone.js',
 				'public/vendor/angularstrap/angular-strap.min.js',
 				'public/vendor/angularstrap/angular-strap.tpl.min.js'
