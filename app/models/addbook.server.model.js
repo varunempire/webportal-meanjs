@@ -12,70 +12,58 @@ var mongoose = require('mongoose'),
 var AddbookSchema = new Schema({
 	name: {
 		type: String,
-		default: '',
-		required: 'Please fill Addbook name',
-		trim: true
+		default: ''
 	},
 	bookno: {
 		type: String,
-		default: '',
-		required: 'Please fill bkno name',
-		trim: true
+		default: ''
+	},
+	publisher: {
+		type: String,
+		default: ''
+	},
+	code: {
+		type: String,
+		default: ''
+	},
+	edition: {
+		type: String,
+		default: ''
+	},
+	
+	author: {
+		type: String,
+		default: ''
 	},
 	course: {
 		type: String,
-		default: '',
-		required: 'Please fill crse name',
-		trim: true
-	},
+		default: ''
+	},	
 	dept: {
 		type: String,
-		default: '',
-		required: 'Please fill dept name',
-		trim: true
+		default: ''
 	},
 	year: {
 		type: String,
-		default: '',
-		required: 'Please fill year name',
-		trim: true
+		default: ''
 	},
 	sem: {
 		type: String,
-		default: '',
-		required: 'Please fill sem name',
-		trim: true
+		default: ''
 	},
-	avbooks: {
+/*	avbooks: {
 		type: String,
 		default: '',
 		required: 'Please fill avbooks name',
 		trim: true
-	},
-	edition: {
-		type: String,
-		default: '',
-		required: 'Please fill edition name',
-		trim: true
-	},
-	publisher: {
-		type: String,
-		default: '',
-		required: 'Please fill publisher name',
-		trim: true
-	},
-	author: {
-		type: String,
-		default: '',
-		required: 'Please fill author name',
-		trim: true
-	},
-	download: {
+	},*/
+	
+	/*download: {
 		type: String,
 		default: '',
 		required: 'Please fill download name',
 		trim: true
-	},
+	},*/
 	/*edit: {
 		type: String,
 		default: '',
@@ -89,19 +77,14 @@ var AddbookSchema = new Schema({
         type: {type: String},
         filename: {type: String}
     },
-	code: {
-		type: String,
-		default: '',
-		required: 'Please fill code name',
-		trim: true
-	},
-	sno: {
+	
+	/*sno: {
 		type: String,
 		default: '',
 		required: 'Please fill sno name',
 		trim: true
-	},
-	copy: {
+	},*/
+	/*copy: {
 		type: String,
 		default: '',
 		required: 'Please fill copy name',
@@ -154,6 +137,14 @@ var AddbookSchema = new Schema({
 		default: '',
 		required: 'Please fill newspaper name',
 		trim: true
+	},*/
+	booktype: {
+		type: String,
+		default: ''
+	},
+	date: {
+		type: String,
+		default: ''
 	},
 	created: {
 		type: Date,

@@ -19,7 +19,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header">
-                	<div class="row">
+                	
+                	
+
+						<h1 data-ng-bind="leavemang.name"></h1>
+						<div class="row">
                 		<div class="col-md-6">
                 			<div class="col-md-3">
                 				<label class="control-label" for="name">Leave Type:</label>
@@ -79,8 +83,6 @@
 	                		</div>
                 		</div>
                 	</div>
-
-						<h1 data-ng-bind="leavemang.name"></h1>
 						
 					</div>
 					<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == leavemang.user._id))">

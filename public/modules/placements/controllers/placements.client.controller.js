@@ -4,6 +4,17 @@
 angular.module('placements').controller('PlacementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Placements',
 	function($scope, $stateParams, $location, Authentication, Placements) {
 		$scope.authentication = Authentication;
+		$scope.clear = function () {
+			$scope.dateofbirth = null;
+		};
+
+
+		$scope.open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.opened = true;
+		};
 
 		// Create new Placement
 		$scope.create = function() {

@@ -3,6 +3,20 @@
         <h1></h1>
     </div>
 
+	<div class="row">
+		<div class="col-xs-12 col-md-10">
+			<div class="input-group input-group-md">
+				<input type="text" placeholder="Search......" class="form-control" ng-model="searchbook">
+				<span class="input-group-btn">
+					<button class="btn btn-danger btn-show" type"button"> 
+<i class="glyphicon glyphicon-search"></i> 
+						</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<br><br>
+	
     <div class="container  login-page-bg">
         <div class="row" style=" margin-top: -18px;margin-left: -18px;">
             <div class="col-md-12 login-page-toggle-active" ng-click="toggleInOut(true)">
@@ -19,7 +33,31 @@
         <br/><br/>
         <div class="row">
             <div class="col-md-12">
-                 <div class="list-group">
+            	  
+            	  <div class="col-sm-6 col-md-3" data-ng-repeat="addbook in addbooks | filter:searchbook" class="list-group-item">
+					    <div class="thumbnail">				      
+					     	<img ng-if="addbook.image.type === 'pdf'" src="modules/core/img/lib/pdf-icon.png" alt="{{addbook.image.name}}"/>
+					     	<img ng-if="addbook.image.type === 'docx'" src="modules/core/img/lib/word-doc-icon.png" alt="{{addbook.image.name}}"/>
+					     	<img ng-if="addbook.image.type === 'xlsx'" src="modules/core/img/lib/excel-xls-icon.png" alt="{{addbook.image.name}}"/>				     
+					     	<img ng-if="addbook.image.type === 'png'" src="modules/core/img/lib/png-icon.png" alt="{{addbook.image.name}}"/>				      
+					     	<img ng-if="addbook.image.type === 'jpg'" src="modules/core/img/lib/jpg-icon.png" alt="{{addbook.image.name}}"/>				      
+					     	<img ng-if="addbook.image.type === 'ppt'" src="modules/core/img/lib/ppt-icon.png" alt="{{addbook.image.name}}"/>				     
+					     	<img ng-if="addbook.image.type === 'txt'" src="modules/core/img/lib/txt-icon.png" alt="{{addbook.image.name}}"/>
+					      
+					      <div class="caption">
+					        <h3>{{addbook.name}}</h3>
+					        <small class="list-group-item-text">
+	                           <span data-ng-bind="addbook.booktype"></span>
+	                        </small>
+					        <p><a href="#" class="btn bg-primary" role="button">{{}}</a>
+					        <a href="#"  data-ng-href="{{addbook.image.filename}}" target="_blank"  role="button">view/download</a> 
+					        <a href="#" class="btn bg-success" role="button">{{}}</a>
+					        <a data-ng-href="#!/addbooks/{{addbook._id}}"  class="text-success" role="button">Details</a></p>
+					      </div>
+					    </div>
+				   
+				  </div>
+               <!--   <div class="list-group">
                     <a data-ng-repeat="addbook in addbooks" data-ng-href="{{addbook.image.filename}}" target="_blank" class="list-group-item">
                         <small class="list-group-item-text">
                             Posted on
@@ -34,7 +72,7 @@
                         <div ng-if="addbook.image.type === 'pdf'" width="150px" height="150px">
                         </div>
                     </a>
-                </div>
+                </div> -->
                 <div class="alert alert-warning text-center" data-ng-hide="!addbooks.$resolved || addbooks.length">
                     No Addbooks yet, why don't you <a href="/#!/addbooks/create">create one</a>?
                 </div>

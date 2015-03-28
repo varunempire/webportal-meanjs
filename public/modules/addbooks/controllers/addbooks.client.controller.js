@@ -9,6 +9,20 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 		//image		
 		$scope.uploadRightAway = false; 
 
+		$scope.clear = function () {
+			$scope.dateofbirth = null;
+		};
+		
+		$scope.open = function($event) {
+			$event.preventDefault();
+			$event.stopPropagation();
+
+			$scope.opened = true;
+
+		};
+		
+		$scope.booktype = 'department';
+		
 		// Create new Addbook
 		$scope.create = function() {
 			
@@ -39,28 +53,31 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 				_id: $scope._id,
 				name: $scope.name,
 				bookno: $scope.bookno,
+				publisher: $scope.publisher,
+				code: $scope.code,
+				edition: $scope.edition,				
+				author: $scope.author,
 				course: $scope.course,
 				dept: $scope.dept,
 				year: $scope.year,
 				sem: $scope.sem,
-				avbooks: $scope.avbooks,
-				edition: $scope.edition,
-				publisher: $scope.publisher,
-				author: $scope.author,
-				download: $scope.download,
+				/*avbooks: $scope.avbooks,*/				
+				/*download: $scope.download,*/
 				//edit: $scope.edit,
 				//image: $scope.paths,
-				code: $scope.code,
-				sno: $scope.sno,
-				copy: $scope.copy,
-				regbook: $scope.regbook,
+				
+				booktype: $scope.booktype,
+				date: $scope.date
+				/*sno: $scope.sno,*/
+				/*copy: $scope.copy,*/
+				/*regbook: $scope.regbook,
 				issue: $scope.issue,
 				penalty: $scope.penalty,
 				renewal: $scope.renewal,
 				mag: $scope.mag,
 				smag: $scope.smag,
 				Journals: $scope.Journals,
-				newspaper: $scope.newspaper
+				newspaper: $scope.newspaper*/
 			});
 
 			// Redirect after save

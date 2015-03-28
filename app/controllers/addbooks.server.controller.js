@@ -129,20 +129,23 @@ exports.upload = function (req, res) {
                 /*title: req.body.title || "???",
                 author: req.body.author || "???",
                 description: req.body.description || "???",*/
-				name: 'fgf',
-				bookno: 'fg',
-				course: 'fg',
-				dept: 'fg',
-				year: 'fgf',
-				sem: 'fg',
-				avbooks: 'fg',
-				edition: 'fg',
-				publisher: 'g',
-				author: 'g',
-				download: 'g',
-				code: 'g',
-				sno: 'g',
-				copy: 'g',
+				name: '',
+				bookno: '',
+				publisher: '',
+				code: '',
+				edition: '',				
+				author: '',
+				course: '',
+				dept: '',
+				year: '',
+				sem: '',
+				booktype:'',
+				date:'',
+			/*	avbooks: 'fg',*/				
+				/*download: 'g',*/
+				
+				/*sno: 'g',*/
+				/*copy: 'g',
 				regbook: 'g',
 				issue: 'g',
 				penalty: 'g',
@@ -150,7 +153,7 @@ exports.upload = function (req, res) {
 				mag: 'g',
 				smag: 'g',
 				Journals: 'g',
-				newspaper: 'g',
+				newspaper: 'g',*/
                 image: {
                     modificationDate: req.files.myFile.modifiedDate || new Date(),
                     name: req.files.myFile.name || "???",

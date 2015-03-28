@@ -21,6 +21,11 @@
                 <div class="page-header">
 					<h1 data-ng-bind="addbook.name"></h1>
 				</div>
+				<small>
+					<em class="text-muted">
+						<span data-ng-bind="addbook.booktype"></span> <a href="#"  data-ng-href="{{addbook.image.filename}}" target="_blank"  role="button">view/download</a> 
+					</em>
+				</small>	
 				<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == addbook.user._id))">
 					<a class="btn btn-primary" href="/#!/addbooks/{{addbook._id}}/edit">
 						<i class="glyphicon glyphicon-edit"></i>
@@ -29,16 +34,98 @@
 						<i class="glyphicon glyphicon-trash"></i>
 					</a>
 				</div>
-				<small>
-					<em class="text-muted">
-						Posted on
-						<span data-ng-bind="addbook.created | date:'mediumDate'"></span>
-						by
-						<span data-ng-bind="addbook.user.displayName"></span>
-					</em>
-				</small>	
+				
             </div>
         </div>
+        
+        <div class="row" ng-if="addbook.booktype === 'department'">
+            <div class="col-md-12">
+                <div class="page-header">
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Book No:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.bookno"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Book Code:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.code"></p>
+	                		</div>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Publisher:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.publisher"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label" >Edition:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.edition"></p>
+	                		</div>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Author:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.author"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Course:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.course"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Department:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.dept"></p>
+	                		</div>
+                		</div>
+                		<div class="col-md-6">
+                			<div class="col-md-3">
+                				<label class="control-label">Year:</label>
+	                		</div>
+
+	                		<div class="col-md-9">
+	                			<p data-ng-bind="addbook.year"></p>
+	                		</div>
+                		</div>
+                	</div>
+
+						
+					</div>
+				
+            </div>
+        </div>
+        
     </div>
 
 	

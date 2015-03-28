@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Mobile No</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="addstudent.year" id="mobile" class="form-control" placeholder="Mail Id" required>
+                        <input type="text" data-ng-model="addstudent.mobile" id="mobile" class="form-control" placeholder="Mail Id" required>
                     </div>
                 </div>
 
@@ -112,8 +112,8 @@
             <div class="col-md-6">
                <!--  <pre>{{radioModel || 'null'}}</pre> -->
                 <div class="btn-group">
-                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'dayscholar'">Day Scholar</label>
-                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'hosteler'">Hosteler</label>
+                    <label class="btn btn-warning" ng-model="radioModel" btn-radio="'dayscholar'">Day Scholar</label>
+                    <label class="btn btn-warning" ng-model="radioModel" btn-radio="'hosteler'">Hosteler</label>
                 </div>
             </div>
         </div>
@@ -292,7 +292,7 @@
             <div class="col-md-6" >
                 <div class="col-md-10">
                     <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                    <input type="submit" value="Update" class="btn btn-primary btn-show">
                 </div>
                 <div data-ng-show="error" class="text-danger">
                     <strong data-ng-bind="error"></strong>

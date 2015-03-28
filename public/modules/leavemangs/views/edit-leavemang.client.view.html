@@ -18,81 +18,93 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6" style="margin-left:10px">
-                <form class="form-horizontal" data-ng-submit="update()" novalidate>
-                    <fieldset>
-                        <div class="form-group">
-                            <label class="control-label" for="name">Name</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.name" id="name" class="form-control" placeholder="Name" required>
+            <form class="form-horizontal" data-ng-submit="update()" novalidate>
+                <fieldset>
+            
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label" for="name">Leave Type</label>
+                                <div class="controls">
+                                    <select class="form-control" data-ng-model="leavemang.leavetype" id="name" class="form-control">
+                                         <option value="" class="">-- choose Leave Type --</option>
+                                         <option value="Leave">Leave</option>
+                                         <option value="Permission">Permission</option>
+                                         <option value="GeneralPermission">General Permission</option>
+                                         <option value="StudyLeave">Study Leave</option>
+                                         <option value="SpecialPermission">Special Permission</option>
+                                         <option value="OnDuty">On Duty</option>
+                                         <option value="SemesterHoliday">Semester Holiday</option>
+                                         <option value="IndustrialVisit">Industrial Visit</option>
+                                         <option value="GeneralLeave">General Leave</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="name">Roll No</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.rollno" id="name" class="form-control" placeholder="Roll No" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="name">Course</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.course" id="name" class="form-control" placeholder="Course" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="name">Department</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.dept" id="name" class="form-control" placeholder="Department" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label" for="name">Year</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.year" id="name" class="form-control" placeholder="Year" required>
-                            </div>
-                        </div>
 
 
-                        <div class="form-group">
-                            <label class="control-label" for="name">Section</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.section" id="name" class="form-control" placeholder="Section" required>
+                            <div class="form-group">
+                                <label class="control-label" for="name">From Date</label>
+                                <div class="controls">                                    
+                                    <br>
+                                      <!-- <pre>Selected time and date is: <em>{{fmdate}}</em></pre> -->
+                     
+                                      <datetimepicker min-date="minDate" show-weeks="showWeeks" hour-step="hourStep" minute-step="minuteStep" data-ng-model="leavemang.fmdate" show-meridian="showMeridian" date-format="dd-MMM-yyyy" date-options="dateOptions" date-disabled="disabled(fmdate, mode)" readonly-time="false"></datetimepicker>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label" for="name">Reason</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.reason" id="name" class="form-control" placeholder="Reason" required>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="control-label" for="name">From</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.from" id="name" class="form-control" placeholder="From" required>
+                            <div class="form-group">
+                                <label class="control-label" for="name">Staff ( username )</label>
+                                <div class="controls">
+                                    <input type="text" data-ng-model="leavemang.staffname" id="staffname" class="form-control" placeholder="Staff Name" required>
+                                </div>
                             </div>
-                        </div>
+                            
+                          
 
-                        <div class="form-group">
-                            <label class="control-label" for="name">To</label>
-                            <div class="controls">
-                                <input type="text" data-ng-model="leavemang.to" id="name" class="form-control" placeholder="TO" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                             <div class="form-group">
+                                <label class="control-label" for="name">Reason Type</label>
+                                <div class="controls">
+                                    <select class="form-control" data-ng-model="leavemang.reasontype" id="name" class="form-control">
+                                         <option value="" class="">-- choose Reason Type --</option>
+                                         <option value="Personal">Personal</option>
+                                         <option value="CollegeWork">College Work</option>
+                                    </select>
+                                </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="name">To Date</label>
+                                <div class="controls">                                    
+                                    <br>
+                                      <!-- <pre>Selected time and date is: <em>{{todate}}</em></pre> -->
+                     
+                                      <datetimepicker min-date="minDate" show-weeks="showWeeks" hour-step="hourStep" minute-step="minuteStep" data-ng-model="leavemang.todate" show-meridian="showMeridian" date-format="dd-MMM-yyyy" date-options="dateOptions" date-disabled="disabled(fmdate, mode)" readonly-time="false"></datetimepicker>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="name">Leave Reason</label>
+                                <div class="controls">
+                                   <textarea class="form-control" data-ng-model="leavemang.leavereason"  rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+
+                             
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Update" class="btn btn-default">
-                        </div>
-                        <div data-ng-show="error" class="text-danger">
-                            <strong data-ng-bind="error"></strong>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
 
