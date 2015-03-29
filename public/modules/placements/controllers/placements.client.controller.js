@@ -1,8 +1,8 @@
 'use strict';
 
 // Placements controller
-angular.module('placements').controller('PlacementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Staffs', 'Placements',
-	function($scope, $stateParams, $location, Authentication, Staffs, Placements) {
+angular.module('placements').controller('PlacementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Staffs', 'Placements', '$timeout', '$upload',
+	function($scope, $stateParams, $location, Authentication, Staffs, Placements, $timeout, $upload) {
 		$scope.authentication = Authentication;
 		$scope.clear = function () {
 			$scope.dateofbirth = null;
@@ -162,5 +162,39 @@ angular.module('placements').controller('PlacementsController', ['$scope', '$sta
 				placementId: $stateParams.placementId
 			});
 		};
+		
+		$scope.selectedFiles = [];
+		$scope.progress = [];
+        $scope.upload = [];
+        $scope.uploadResult = [];
+        $scope.dataUrls = [];
+        
+		$scope.onFileSelect = function ($files) {
+		  	
+	        $scope.selectedFiles = $files;
+	        
+	        //limite
+	        if($files.length>4)
+				{$files.length=4;}
+	        
+	        for (var i = 0; i < $files.length; i++) {
+	            var $file = $files[i];
+	            if (window.FileReader) {
+	                var fileReader = new FileReader();
+	                fileReader.readAsDataURL($files[i]);
+	                function setPreview(fileReader, index) {
+	                    fileReader.onload = function (e) {
+	                        $timeout(function () {
+	                            $scope.dataUrls[index] = e.target.result;
+	                        });
+	                    }
+	                };
+	
+	                setPreview(fileReader, i);
+	            }
+	            $scope.progress[i] = -1;
+	        }
+    
+	  };
 	}
 ]);
