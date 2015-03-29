@@ -26,7 +26,7 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	rollno: {
-		type: Number,
+		type: String,
 		default: '',
 		trim: true
 	},

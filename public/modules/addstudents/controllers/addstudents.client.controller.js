@@ -79,9 +79,9 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 			
 			//Basic validation for library.
 			//Start
-			if(!_.isNumber(this.rollno) || _.isUndefined(this.rollno)){
+			if(_.isEmpty(this.rollno) || _.isUndefined(this.rollno)){
 				$scope.success = '';
-				$scope.error = 'Roll No - Please enter a valid number.';
+				$scope.error = 'Roll No - Please enter a valid roll number.';
 				return;
 			}else if(!_.isNumber(this.regno) || _.isUndefined(this.regno)){
 				$scope.success = '';
