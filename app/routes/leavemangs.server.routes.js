@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 	app.route('/leavemangs/:leavemangId')
 		.get(leavemangs.read)
-		.put(users.requiresLogin, leavemangs.hasAuthorization, leavemangs.update)
+		.put(users.requiresLogin, leavemangs.update)
 		.delete(users.requiresLogin, leavemangs.hasAuthorization, leavemangs.delete);
 
 	// Finish by binding the Leavemang middleware

@@ -45,13 +45,13 @@ var StaffSchema = new Schema({
 		trim: true
 	},
 	mob: {
-		type: String,
+		type: Number,
 		default: '',
 		required: 'Please fill Staff name',
 		trim: true
 	},
 	experience: {
-		type: String,
+		type: Number,
 		default: '',
 		required: 'Please fill Staff name',
 		trim: true
@@ -93,7 +93,7 @@ var StaffSchema = new Schema({
 		trim: true
 	},
 	staffid: {
-		type: String,
+		type: Number,
 		default: '',
 		required: 'Please fill Staff ID',
 		trim: true

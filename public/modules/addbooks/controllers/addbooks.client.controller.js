@@ -26,6 +26,19 @@ angular.module('addbooks').controller('AddbooksController', ['$scope', '$statePa
 		// Create new Addbook
 		$scope.create = function() {
 			
+			//Basic validation for library.
+			//Start
+			if(!_.isNumber($scope.bookno) || _.isUndefined($scope.bookno)){
+				$scope.success = '';
+				$scope.error = 'Book No - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber($scope.year) || _.isUndefined($scope.bookno)){
+				$scope.success = '';
+				$scope.error = 'Year - Please enter a valid number.';
+				return;
+			}
+			//End.
+			
 			//debugger;
 			//image
 			console.log($scope.selectedFiles.length);

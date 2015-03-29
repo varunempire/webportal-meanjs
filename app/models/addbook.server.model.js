@@ -15,7 +15,7 @@ var AddbookSchema = new Schema({
 		default: ''
 	},
 	bookno: {
-		type: String,
+		type: Number,
 		default: ''
 	},
 	publisher: {
@@ -44,7 +44,7 @@ var AddbookSchema = new Schema({
 		default: ''
 	},
 	year: {
-		type: String,
+		type: Number,
 		default: ''
 	},
 	sem: {

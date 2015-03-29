@@ -76,6 +76,44 @@ angular.module('addstudents').controller('AddstudentsController', ['$scope', '$h
 
 		// Create new Addstudent
 		$scope.create = function() {
+			
+			//Basic validation for library.
+			//Start
+			if(!_.isNumber(this.rollno) || _.isUndefined(this.rollno)){
+				$scope.success = '';
+				$scope.error = 'Roll No - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.regno) || _.isUndefined(this.regno)){
+				$scope.success = '';
+				$scope.error = 'Register No - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.year) || _.isUndefined(this.year)){
+				$scope.success = '';
+				$scope.error = 'Year - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.mobile) || _.isUndefined(this.mobile)){
+				$scope.success = '';
+				$scope.error = 'Mobile No - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.fmobno) || _.isUndefined(this.fmobno)){
+				$scope.success = '';
+				$scope.error = 'Father Mobile Number - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.mmobno) || _.isUndefined(this.mmobno)){
+				$scope.success = '';
+				$scope.error = 'Mother Mobile Number - Please enter a valid number.';
+				return;
+			}
+			//End.
+			
+			if($scope.radioModel === 'hosteler'){
+				if(!_.isNumber(this.roomno) || _.isUndefined(this.roomno)){
+					$scope.success = '';
+					$scope.error = 'Room No - Please enter a valid number.';
+					return;
+				}				
+			}
+			
 			// Create new Addstudent object
 			var addstudent = new Addstudents ({
 				name: this.name,

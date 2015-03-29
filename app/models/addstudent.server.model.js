@@ -26,12 +26,12 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	rollno: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
 	regno: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
@@ -46,7 +46,7 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	year: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
@@ -61,7 +61,7 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	mobile: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
@@ -96,7 +96,7 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	fmobno: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
@@ -111,12 +111,12 @@ var AddstudentSchema = new Schema({
 		trim: true
 	},
 	mmobno: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},
 	roomno: {
-		type: String,
+		type: Number,
 		default: '',
 		trim: true
 	},

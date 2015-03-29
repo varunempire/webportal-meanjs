@@ -68,7 +68,7 @@
 	                <div class="form-group">
 	                    <label class="control-label" >Book No</label>
 	                    <div class="controls">
-	                        <input type="text" data-ng-model="addbook.bookno" id="name" class="form-control" placeholder="Book No" required>
+	                        <input type="number" data-ng-model="addbook.bookno" id="name" class="form-control" placeholder="Book No" required>
 	                    </div>
 	                </div> 
 	                <div class="form-group">
@@ -114,7 +114,7 @@
                  	<div class="form-group">
 	                    <label class="control-label" >Year</label>
 	                    <div class="controls">
-	                        <input type="text" data-ng-model="addbook.year" id="name" class="form-control" placeholder="Year" required>
+	                        <input type="number" data-ng-model="addbook.year" id="name" class="form-control" placeholder="Year" required>
 	                    </div>
 	                </div>
 	                <div class="form-group">
@@ -129,7 +129,18 @@
             </div>
         </div>   
                 
-                
+             <div class="row">
+            <div class="col-md-6" >
+                <div class="col-md-10">
+                    <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary btn-show">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+                </div>
+            </div>
+        </div>   
             </div>
         </fieldset>
     </form>

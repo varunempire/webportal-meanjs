@@ -79,6 +79,21 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 		// Create new Staff
 		$scope.create = function() {
 			// Create new Staff object
+			
+			if(!_.isNumber(this.staffid) || _.isUndefined(this.staffid)){
+				$scope.success = '';
+				$scope.error = 'Staff ID - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.mob) || _.isUndefined(this.mob)){
+				$scope.success = '';
+				$scope.error = 'Mobile No - Please enter a valid number.';
+				return;
+			}else if(!_.isNumber(this.experience) || _.isUndefined(this.experience)){
+				$scope.success = '';
+				$scope.error = 'Experience - Please enter a valid number.';
+				return;
+			}
+			
 			var staff = new Staffs ({
 				name: this.name,
 				lname: this.lname,
@@ -96,23 +111,8 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 				community: this.community,
 				staffid:this.staffid,
 				designation:this.designation,
-				username: this.name.toLowerCase()+''+this.staffid.toLowerCase(),
+				username: this.name.toLowerCase()+''+this.staffid,
 				role: 'staff'
-				/*
-				name: this.name,
-				regno: this.regno,
-				course: this.course,
-				dept: this.dept,
-				year: this.year,
-				sec: this.sec,
-				cursem: this.cursem,
-				leave: this.leave,
-				attendance: this.attendance,
-				mark1: this.mark1,
-				mark2: this.mark2,
-				mark3: this.mark3,
-				mark4: this.mark4,
-				mark5: this.mark5	*/			
 			});
 
 			// Redirect after save
@@ -128,16 +128,10 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 				$scope.staffcredentials.role =response.role;
 				$http.post('/auth/signup', $scope.staffcredentials).success(function(res) {
 					$location.path('staffs/' + response._id);
-
-					// Clear form fields
 					$scope.name = '';
 				}).error(function(res) {
 					$scope.error = res.message;
-				});
-				//$location.path('staffs/' + response._id);
-
-				// Clear form fields
-				//$scope.name = '';
+				});				
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
