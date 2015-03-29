@@ -18,7 +18,8 @@
 						<b class="caret"></b>
 					</span>
 					<span ng-if="authentication.user.role === 'staff'">
-						<span ng-if="(item.title !== 'Addstudents') && (item.title !== 'Placements')">
+						<!-- <span ng-if="(item.title !== 'Addstudents') && (item.title !== 'Placements')"> -->
+						<span ng-if="(item.title !== 'Addstudents')">
 							<span data-ng-bind="item.title"></span>
 							<b class="caret"></b>
 						</span>
@@ -39,8 +40,9 @@
 						<span ng-if="authentication.user.role === 'staff'">							
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'Search Books'" data-ng-bind="subitem.title"></a>
 							<!-- <a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Addstudents'" data-ng-bind="subitem.title"></a> -->
+							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Placements'" data-ng-bind="subitem.title"></a>
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Leavemangs'" data-ng-bind="subitem.title"></a>
-							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'New Leavemang'" data-ng-bind="subitem.title"></a>
+							<!-- <a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'New Leavemang'" data-ng-bind="subitem.title"></a> -->
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Staffs'" data-ng-bind="subitem.title"></a>
 						</span>						
 						<span ng-if="authentication.user.role === 'student'">							
@@ -49,6 +51,7 @@
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Leavemangs'" data-ng-bind="subitem.title"></a>
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'New Leavemang'" data-ng-bind="subitem.title"></a>
 							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'New Placement'" data-ng-bind="subitem.title"></a>
+							<a href="/#!/{{subitem.link}}" ng-if="subitem.title === 'List Placements'" data-ng-bind="subitem.title"></a>
 						</span>
 						<!-- <a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a> -->
 					</li>

@@ -9,7 +9,7 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 			$scope.dateofbirth = null;
 		};
 
-
+		$scope.isPlacement = false;
 		$scope.open = function($event) {
 			$event.preventDefault();
 			$event.stopPropagation();
@@ -63,7 +63,8 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 		    { name:'experience', width:150, displayName: 'Experience' },
 		    { name:'designation', width:150, displayName: 'Designation' },
 		    { name:'qualification', width:200, enableCellEdit: true, displayName: 'Qualification', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
-		    { name:'gender', width:150, displayName: 'Gender' }
+		    { name:'gender', width:150, displayName: 'Gender' },
+		    { name:'isPlacement', width:150, displayName: 'Placement Officer' }
 		     ];
 		     
 		 // $scope.columns[0].visible;
@@ -93,7 +94,11 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 				$scope.error = 'Experience - Please enter a valid number.';
 				return;
 			}
-			
+			/*if($scope.isPlacement === true){
+				$scope.isPlacement = 'YES';
+			}else{
+				$scope.isPlacement = 'NO';
+			}*/
 			var staff = new Staffs ({
 				name: this.name,
 				lname: this.lname,
@@ -112,7 +117,8 @@ angular.module('staffs').controller('StaffsController', ['$scope', '$http', '$st
 				staffid:this.staffid,
 				designation:this.designation,
 				username: this.name.toLowerCase()+''+this.staffid,
-				role: 'staff'
+				role: 'staff',
+				isPlacement:this.isPlacement
 			});
 
 			// Redirect after save

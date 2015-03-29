@@ -90,6 +90,13 @@
                         <input type="number" data-ng-model="experience" id="name" class="form-control" placeholder="Experience" required>
                     </div>
                     </div>
+                    
+                     <div class="form-group">
+	                    <input type="submit" class="btn btn-primary btn-show">
+	                </div>
+	                <div data-ng-show="error" class="text-danger">
+	                    <strong data-ng-bind="error"></strong>
+	                </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -143,13 +150,18 @@
                     </div>
 
                     <div class="form-group">
-                    <label class="control-label" for="name">Community</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="community" id="name" class="form-control" placeholder="Community" required>
+	                    <label class="control-label" for="name">Community</label>
+	                    <div class="controls">
+	                        <input type="text" data-ng-model="community" id="name" class="form-control" placeholder="Community" required>
+	                    </div>
                     </div>
-                    </div>
-
-
+					<div class="form-group">
+					 <div class="checkbox">
+					    <label class="btn bg-info">
+					      <input type="checkbox" data-ng-model="isPlacement"> Check if he is placement officer?
+					    </label>
+					  </div>
+					  </div>
                    <!--  <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
@@ -257,12 +269,7 @@
                 </div> -->
 
 
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-show">
-                </div>
-                <div data-ng-show="error" class="text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
+               
                 </div>
             </div>
         </div>

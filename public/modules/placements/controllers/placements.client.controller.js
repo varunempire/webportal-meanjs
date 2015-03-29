@@ -1,8 +1,8 @@
 'use strict';
 
 // Placements controller
-angular.module('placements').controller('PlacementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Placements',
-	function($scope, $stateParams, $location, Authentication, Placements) {
+angular.module('placements').controller('PlacementsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Staffs', 'Placements',
+	function($scope, $stateParams, $location, Authentication, Staffs, Placements) {
 		$scope.authentication = Authentication;
 		$scope.clear = function () {
 			$scope.dateofbirth = null;
@@ -16,9 +16,75 @@ angular.module('placements').controller('PlacementsController', ['$scope', '$sta
 			$scope.opened = true;
 		};
 
+		//Grid
+		  $scope.gridOptions = {};
+		  $scope.gridOptions.data = 'myData';
+		  $scope.gridOptions.enableColumnResizing = true;
+		  $scope.gridOptions.enableFiltering = true;
+		  $scope.gridOptions.enableGridMenu = true;
+		  $scope.gridOptions.showGridFooter = true;
+		  $scope.gridOptions.showColumnFooter = true;
+		  
+		 
+		  if($scope.authentication.user.role === 'staff'){
+			  Placements.query().$promise.then(function(response){
+				  $scope.myData = _.where(response, { 'staffusername': $scope.authentication.user.username});
+			  });
+			}else if($scope.authentication.user.role === 'student'){
+				Placements.query().$promise.then(function(response){
+					  $scope.myData = _.where(response, { 'studentusername': $scope.authentication.user.username});
+				  });
+			}else{
+				$scope.myData = Placements.query();
+			}
+		  
+		  
+		  $scope.gridOptions.rowIdentity = function(row) {
+		    return row.id;
+		  };
+		  $scope.gridOptions.getRowIdentity = function(row) {
+		    return row.id;
+		  };
+		 
+		  $scope.status = 'pending';
+		  $scope.approved = function(val){			  	
+			  $location.path('placements/'+val);		  	
+	      };
+	      
+	      Staffs.query().$promise.then(function(response){	    	
+				$scope.staffitems = _.uniq(_.pluck(_.where(response, { 'isPlacement': true}), 'username'));
+			  });
+	      
+		  $scope.gridOptions.columnDefs = [
+		    { name:'_id', width:150 , enableSorting: false, enableColumnMenu: false, displayName: 'Information', visible:true, enableFiltering :false, cellTemplate: '<button class="btn btn-info btn-xs" style="margin-left:20px;" ng-click="grid.appScope.approved(COL_FIELD)"><span class="h4-circle-active">View	Profile <i class="glyphicon glyphicon-user"></i></span></button>' },
+		    { name:'fname', enableSorting: false,  enableFiltering :false, enableColumnMenu: false, width:150, displayName: 'First Name' },
+		    { name:'course', displayName: 'Course', width:150, enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },	    
+		    { name:'dept', width:150, displayName: 'Department', enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'   },
+		    { name:'rollno', width:150, displayName: 'Rollno',  enableCellEdit: true, cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },		    
+		    { name:'year', width:150, displayName: 'Year' },
+		    { name:'mail', width:150, displayName: 'Mail Id' },
+		    { name:'preaddress', width:200, enableCellEdit: true, displayName: 'Present address', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'nation', width:150, displayName: 'Nationality' },
+		    { name:'sex', width:150, displayName: 'Sex' },
+		    { name:'mobno', width:200, enableCellEdit: true, displayName: 'Mobile Number', cellTemplate: '<div class="ui-grid-cell-contents"><span>{{COL_FIELD}}</span></div>'  },
+		    { name:'community', width:150, displayName: 'Community' },
+		    { name:'cursem', width:150, displayName: 'Current semester' }
+		     ];
+		     
+		 // $scope.columns[0].visible;
+		  $scope.callsPending = 0;
+		 
+		  var i = 0;
+		  $scope.refreshData = function(){
+		    $scope.myData = Placements.query();
+		  };
+		  
+		  
+		  
 		// Create new Placement
 		$scope.create = function() {
 			// Create new Placement object
+			
 			var placement = new Placements ({
 				fname: this.fname,
 				dept: this.dept,
@@ -41,7 +107,9 @@ angular.module('placements').controller('PlacementsController', ['$scope', '$sta
 				gpa: this.gpa,
 				cgpa: this.cgpa,
 				scname: this.scname,
-				sclocation: this.sclocation
+				sclocation: this.sclocation,
+				staffusername: this.staffusername,
+				studentusername: $scope.authentication.user.username
 			});
 
 			// Redirect after save

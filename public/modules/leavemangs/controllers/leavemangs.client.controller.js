@@ -112,7 +112,6 @@ angular.module('leavemangs').controller('LeavemangsController', ['$scope', '$sta
 			  if($scope.authentication.user.role === 'student'){
 				  $scope.myData = Leavemangs.query();
 				  Leavemangs.query().$promise.then(function(response){
-					  debugger;
 					  $scope.myData = _.where(response, { 'studentusername': $scope.authentication.user.username});					 
 				  });
 				}else{

@@ -142,6 +142,14 @@ var PlacementSchema = new Schema({
 		required: 'Please fill Placement name',
 		trim: true
 	},
+	staffusername: {
+		type: String,
+		default: ''
+	},
+	studentusername: {
+		type: String,
+		default: ''
+	},
 	created: {
 		type: Date,
 		default: Date.now

@@ -103,6 +103,10 @@ var StaffSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	isPlacement:{
+		type: Boolean,
+		default: '',
+	},
 	username: {
 		type: String,
 		default: '',
